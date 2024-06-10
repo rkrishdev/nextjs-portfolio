@@ -1,0 +1,10 @@
+.textLogo {
+  font-size: 28px;
+  font-weight: normal;
+  color: var(--white);
+  text-shadow: 0 0 16px var(--primary);
+}
+
+.textLogo span {
+  color: var(--primary);
+}
