@@ -16,6 +16,9 @@
 
 .firstTextMobile {
   display: none;
+}
+
+.firstTextMobileWrapper {
   margin-bottom: 4rem;
 }
 

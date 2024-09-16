@@ -81,7 +81,10 @@ export const Gradient = ({
           priority
         />
       </div>
-      <div style={{ overflow: "hidden" }}>
+      <div
+        className={heroStyles.firstTextMobileWrapper}
+        style={{ overflow: "hidden" }}
+      >
         <motion.p
           className={[
             defaultStyles.textLarge,
@@ -89,9 +92,9 @@ export const Gradient = ({
             heroStyles.firstTextMobile,
             defaultStyles.containerSpace,
           ].join(" ")}
-          initial={{ y: 200 }}
+          initial={{ y: 100 }}
           animate={textControls}
-          transition={{ duration: 2, ease: "anticipate", delay: 0.4 }}
+          transition={{ duration: 2, ease: "anticipate", delay: 0.1 }}
         >
           Full Stack Developer, exploring web technologies in my fascinating
           journey through endeavors
