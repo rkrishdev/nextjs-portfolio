@@ -2,8 +2,7 @@ import navbarStyles from "@/styles/navbar.module.css";
 import { medium, montserrat } from "@/ui/fonts";
 import defaultStyles from "@/styles/default.module.css";
 import heroStyles from "@/styles/hero.module.css";
-import { AnimationControls, motion, useAnimation } from "framer-motion";
-import { useEffect } from "react";
+import { AnimationControls, motion } from "framer-motion";
 
 export const TextContent = ({
   loading,
