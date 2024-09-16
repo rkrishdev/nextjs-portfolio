@@ -74,7 +74,7 @@
   }
 }
 
-@media screen and (min-width: 376px) and (max-width: 1000px) {
+@media screen and (min-width: 401px) and (max-width: 1000px) {
   .headingStandard {
     font-size: 17px;
   }

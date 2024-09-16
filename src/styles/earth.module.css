@@ -4,7 +4,13 @@
   margin: 6vw auto 4vw auto;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 400px) {
+  .container {
+    height: 112.5vw;
+  }
+}
+
+@media screen and (min-width: 401px) and (max-width: 500px) {
   .container {
     height: 95vw;
   }
