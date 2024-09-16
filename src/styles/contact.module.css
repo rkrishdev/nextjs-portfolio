@@ -1,0 +1,266 @@
+.headingContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 8vw;
+}
+
+@media screen and (max-width: 1000px) {
+  .headingContainer {
+    margin-bottom: 4rem;
+  }
+}
+
+.line {
+  width: 100%;
+  height: 0.05vw;
+  background-color: var(--white);
+  margin-left: 5vw;
+}
+
+.mainContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 9vw;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 1000px) {
+  .mainContainer {
+    flex-direction: column;
+  }
+}
+
+.computerImage {
+  width: 33vw;
+  height: 25vw;
+  object-fit: cover;
+  object-position: center 25%;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 600px) {
+  .computerImage {
+    width: 100%;
+    height: 67.5vw;
+  }
+}
+
+@media screen and (min-width: 601px) and (max-width: 1000px) {
+  .computerImage {
+    width: 100%;
+    height: 55vw;
+  }
+}
+
+.textContainer {
+  display: flex;
+  align-items: center;
+  max-width: 30vw;
+}
+
+@media screen and (max-width: 1000px) {
+  .textContainer {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+
+  .textWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .textContainer h3 {
+    margin-bottom: 1.5rem;
+  }
+
+  .textContainer p {
+    margin-bottom: 2rem;
+  }
+}
+
+.lastTextSpace {
+  margin-bottom: 2.4vw;
+}
+
+@media screen and (max-width: 1000px) {
+  .lastTextSpace {
+    margin-bottom: 1rem;
+  }
+}
+
+.contactButton {
+  position: relative;
+  width: fit-content;
+  background-color: var(--button-bg-white);
+  outline: none;
+  border: 0;
+  text-decoration: none;
+  padding: 0.6vw 2vw;
+  display: flex;
+  margin-bottom: 2.4vw;
+}
+
+@media screen and (max-width: 1000px) {
+  .contactButton {
+    padding: 0.6rem 2rem;
+    margin-bottom: 2rem;
+  }
+}
+
+.contactButton span {
+  position: absolute;
+  background-color: var(--primary);
+  box-shadow: 0 0 0.25vw var(--shadow-primary);
+}
+
+@media screen and (max-width: 1000px) {
+  .contactButton span {
+    box-shadow: 0 0 3px var(--shadow-primary);
+  }
+}
+
+.contactButton span:first-child {
+  width: 0.9vw;
+  height: 0.05vw;
+  top: 0;
+  left: 0;
+}
+
+.contactButton span:nth-child(2) {
+  height: 0.9vw;
+  width: 0.05vw;
+  top: 0;
+  left: 0;
+}
+
+.contactButton span:nth-child(3) {
+  width: 0.9vw;
+  height: 0.05vw;
+  top: 0;
+  right: 0;
+}
+
+.contactButton span:nth-child(4) {
+  height: 0.9vw;
+  width: 0.05vw;
+  top: 0;
+  right: 0;
+}
+
+.contactButton span:nth-child(5) {
+  width: 0.9vw;
+  height: 0.05vw;
+  bottom: 0;
+  left: 0;
+}
+
+.contactButton span:nth-child(6) {
+  height: 0.9vw;
+  width: 0.05vw;
+  bottom: 0;
+  left: 0;
+}
+
+.contactButton span:nth-child(7) {
+  width: 0.9vw;
+  height: 0.05vw;
+  bottom: 0;
+  right: 0;
+}
+
+.contactButton span:nth-child(8) {
+  height: 0.9vw;
+  width: 0.05vw;
+  bottom: 0;
+  right: 0;
+}
+
+@media screen and (max-width: 1000px) {
+  .contactButton span:first-child {
+    width: 0.75rem;
+    height: 1px;
+  }
+
+  .contactButton span:nth-child(2) {
+    height: 0.75rem;
+    width: 1px;
+  }
+
+  .contactButton span:nth-child(3) {
+    width: 0.75rem;
+    height: 1px;
+  }
+
+  .contactButton span:nth-child(4) {
+    height: 0.75rem;
+    width: 1px;
+  }
+
+  .contactButton span:nth-child(5) {
+    width: 0.75rem;
+    height: 1px;
+  }
+
+  .contactButton span:nth-child(6) {
+    height: 0.75rem;
+    width: 1px;
+  }
+
+  .contactButton span:nth-child(7) {
+    width: 0.75rem;
+    height: 1px;
+  }
+
+  .contactButton span:nth-child(8) {
+    height: 0.75rem;
+    width: 1px;
+  }
+}
+
+.socialsContainer {
+  display: flex;
+  gap: 1.5vw;
+}
+
+@media screen and (max-width: 1000px) {
+  .socialsContainer {
+    gap: 1.25rem;
+  }
+}
+
+.socialLink {
+  height: 2.6vw;
+  width: 2.6vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 0.1vw solid var(--primary);
+  background-color: transparent;
+}
+
+.socialIcon {
+  width: 1.1vw;
+  height: 1.1vw;
+  object-fit: contain;
+}
+
+@media screen and (max-width: 1000px) {
+  .socialLink {
+    height: 44px;
+    width: 44px;
+    border: 1px solid var(--primary);
+  }
+
+  .socialIcon {
+    height: 22px;
+    width: 22px;
+  }
+}

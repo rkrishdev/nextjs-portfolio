@@ -5,6 +5,57 @@
 
 :root {
   --primary: #58cecb;
+  --shadow-primary: #58cecb;
+  --button-bg-primary: rgba(88, 206, 203, 0.085);
+  --transparent-bg-primary: rgba(1, 9, 15, 0.925);
   --dark: #01090f;
   --white: #ffffff;
+  --button-bg-white: rgba(255, 255, 255, 0.05);
+  --button-bg-white-hover: rgba(255, 255, 255, 0.065);
+  --container-space: 5rem;
+  --container-space-large: 10rem;
+}
+
+html {
+  scrollbar-width: none;
+}
+
+html {
+  position: relative;
+}
+
+header {
+  position: relative;
+  height: 6.5vw;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 1000px) {
+  header {
+    height: 75px;
+    padding: 0 1.25rem;
+  }
+}
+
+.footerGradientBg {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 250vw;
+  background: linear-gradient(
+    160deg,
+    transparent 78.5%,
+    rgba(23, 233, 228, 0.13)
+  );
+
+  z-index: -1;
+}
+
+@media screen and (max-width: 1000px) {
+  .footerGradientBg {
+    height: 500vh;
+  }
 }

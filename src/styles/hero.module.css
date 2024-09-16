@@ -1,0 +1,156 @@
+.container {
+  margin-top: 2vw;
+}
+
+@media screen and (max-width: 1000px) {
+  .container {
+    margin-top: 2.5rem;
+    overflow: hidden;
+  }
+}
+
+.firstText {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.firstTextMobile {
+  display: none;
+  margin-bottom: 4rem;
+}
+
+@media screen and (max-width: 1000px) {
+  .firstText {
+    display: none;
+  }
+
+  .firstTextMobile {
+    display: block;
+  }
+}
+
+.nameText {
+  width: 41.5vw;
+  height: auto;
+}
+
+@media screen and (max-width: 700px) {
+  .nameText {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 701px) and (max-width: 1000px) {
+  .nameText {
+    width: calc(93vw - 15rem);
+  }
+}
+
+.secondarySection {
+  margin-top: 2.5vw;
+  transform: rotate(0.0001deg);
+  overflow: hidden;
+}
+
+.textSpacing {
+  margin: 2vw 0 1vw 0;
+}
+
+@media screen and (max-width: 1000px) {
+  .textSpacing {
+    margin: 1.75rem 0 1rem 0;
+  }
+}
+
+.imageContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.bgImageContainer {
+  margin-top: 3vw;
+}
+
+@media screen and (max-width: 1000px) {
+  .imageContainer {
+    margin: 1.5rem auto;
+  }
+
+  .bgImageContainer {
+    width: 100%;
+  }
+}
+
+.bgImage {
+  object-fit: cover;
+  z-index: 100;
+}
+
+@media screen and (max-width: 1000px) {
+  .bgImage {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media screen and (min-width: 1001px) {
+  .bgImage {
+    width: 40vw;
+    height: 21vw;
+  }
+}
+
+.gradientImage {
+  position: absolute;
+  width: 48vw;
+  height: 47.75vw;
+  top: 5%;
+  left: 27%;
+  z-index: -1;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 1000px) {
+  .gradientImage {
+    width: 600px;
+    height: 600px;
+    top: -8rem;
+    left: 30vw;
+  }
+}
+
+.circleImage {
+  width: 6vw;
+  height: 6vw;
+  position: absolute;
+  left: 82.5%;
+  top: 25vw;
+}
+
+.circleImageMobile {
+  display: none;
+}
+
+.circleImageMobileContainer {
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (max-width: 1000px) {
+  .circleImageDesktop {
+    display: none;
+  }
+
+  .circleImageMobile {
+    display: flex;
+  }
+
+  .circleImage {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 75px;
+    height: 75px;
+  }
+}

@@ -1,0 +1,64 @@
+.container {
+  height: 24vw;
+  background-color: transparent;
+  margin: 6vw auto 4vw auto;
+}
+
+@media screen and (max-width: 500px) {
+  .container {
+    height: 95vw;
+  }
+}
+
+@media screen and (min-width: 501px) and (max-width: 800px) {
+  .container {
+    height: 70vw;
+  }
+}
+
+@media screen and (min-width: 801px) and (max-width: 1000px) {
+  .container {
+    height: 60vw;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .container {
+    min-height: 400px;
+    margin: 4rem auto;
+  }
+}
+
+.row {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media screen and (max-width: 1000px) {
+  .row {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.largeHeading {
+  color: var(--white);
+  font-size: 1.9vw;
+  line-height: 3vw;
+}
+
+@media screen and (max-width: 1000px) {
+  .largeHeading {
+    font-size: 16px;
+    line-height: 30px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .quoteContainer {
+    margin-bottom: 3rem;
+  }
+}
