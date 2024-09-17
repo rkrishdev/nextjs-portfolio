@@ -25,6 +25,7 @@ export const Others = () => {
             medium.className,
             defaultStyles.textNormal,
             defaultStyles.textSpaceLarge,
+            skillsStyles.title,
           ].join(" ")}
         >
           Frontend
@@ -42,6 +43,7 @@ export const Others = () => {
             medium.className,
             defaultStyles.textNormal,
             defaultStyles.textSpaceLarge,
+            skillsStyles.title,
           ].join(" ")}
         >
           Backend
@@ -49,7 +51,8 @@ export const Others = () => {
         <p
           className={[montserrat.className, defaultStyles.textNormal].join(" ")}
         >
-          PHP, CodeIgniter, Linux, Websocket, Express.js, MySQL, Docker and Apache
+          PHP, CodeIgniter, Linux, Websocket, Express.js, MySQL, Docker and
+          Apache
         </p>
       </div>
       <div className={skillsStyles.othersGridItem}>
@@ -58,6 +61,7 @@ export const Others = () => {
             medium.className,
             defaultStyles.textNormal,
             defaultStyles.textSpaceLarge,
+            skillsStyles.title,
           ].join(" ")}
         >
           Scripting and Testing Tools
@@ -74,6 +78,7 @@ export const Others = () => {
             medium.className,
             defaultStyles.textNormal,
             defaultStyles.textSpaceLarge,
+            skillsStyles.title,
           ].join(" ")}
         >
           Design Tools

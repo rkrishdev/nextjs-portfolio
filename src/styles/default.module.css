@@ -48,7 +48,7 @@
   }
 
   .textSpaceSmall {
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.55rem;
   }
 
   .textSpace {
@@ -67,7 +67,7 @@
 
 @media screen and (max-width: 400px) {
   .headingStandard {
-    font-size: 14px;
+    font-size: 15px;
   }
 }
 
@@ -146,7 +146,7 @@
   }
 }
 
-@media screen and (min-width: 376px) and (max-width: 1000px) {
+@media screen and (min-width: 401px) and (max-width: 1000px) {
   .textLarge {
     font-size: 15px;
   }

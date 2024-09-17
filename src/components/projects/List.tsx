@@ -83,7 +83,6 @@ export const List = () => {
     col2TransformValue
   );
 
-  // Render the project list dynamically
   const renderProject = (project: any) => (
     <div className={projectStyles.listItem} key={project.title}>
       <Image
@@ -102,6 +101,7 @@ export const List = () => {
             defaultStyles.textPrimary,
             defaultStyles.letterSpacingDefault,
             defaultStyles.textSpaceSmall,
+            projectStyles.title,
           ].join(" ")}
         >
           {project.title}

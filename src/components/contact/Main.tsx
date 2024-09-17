@@ -36,6 +36,7 @@ export const Main = () => {
               defaultStyles.textLarge,
               defaultStyles.textPrimary,
               defaultStyles.headingSpace,
+              contactStyles.title,
             ].join(" ")}
           >
             Feel free to message me regarding anything!

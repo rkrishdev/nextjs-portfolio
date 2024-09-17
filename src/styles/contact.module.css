@@ -263,4 +263,8 @@
     height: 22px;
     width: 22px;
   }
+
+  .title {
+    font-size: 13px;
+  }
 }
