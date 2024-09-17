@@ -24,7 +24,7 @@ export const Highlighted = () => {
         <div className={skillsStyles.gridItem}>
           <Image
             className={skillsStyles.gridItemLogo}
-            src={"/assets/img/logos/nextjs.webp"}
+            src={"/assets/imgs/logos/nextjs.webp"}
             width={0}
             height={0}
             sizes="100vw"
@@ -39,7 +39,7 @@ export const Highlighted = () => {
         <div className={skillsStyles.gridItem}>
           <Image
             className={skillsStyles.gridItemLogo}
-            src={"/assets/img/logos/nodejs.webp"}
+            src={"/assets/imgs/logos/nodejs.webp"}
             width={0}
             height={0}
             sizes="100vw"
@@ -54,7 +54,7 @@ export const Highlighted = () => {
         <div className={skillsStyles.gridItem}>
           <Image
             className={skillsStyles.gridItemLogo}
-            src={"/assets/img/logos/laravel.webp"}
+            src={"/assets/imgs/logos/laravel.webp"}
             width={0}
             height={0}
             sizes="100vw"
@@ -69,7 +69,7 @@ export const Highlighted = () => {
         <div className={skillsStyles.gridItem}>
           <Image
             className={skillsStyles.gridItemLogo}
-            src={"/assets/img/logos/sass.webp"}
+            src={"/assets/imgs/logos/sass.webp"}
             width={0}
             height={0}
             sizes="100vw"
@@ -84,7 +84,7 @@ export const Highlighted = () => {
         <div className={skillsStyles.gridItem}>
           <Image
             className={skillsStyles.gridItemLogo}
-            src={"/assets/img/logos/tailwind.webp"}
+            src={"/assets/imgs/logos/tailwind.webp"}
             width={0}
             height={0}
             sizes="100vw"

@@ -1,5 +1,5 @@
 import heroStyles from "@/styles/hero.module.css";
-import { AnimationControls, useAnimation } from "framer-motion";
+import { useAnimation } from "framer-motion";
 import { motion } from "framer-motion";
 import { useEffect } from "react";
 
@@ -14,7 +14,7 @@ export const CircleImage = ({ loading }: { loading: boolean }) => {
   return (
     <div style={{ overflow: "hidden" }}>
       <motion.img
-        src={"/assets/img/others/landing-circle-arrow.png"}
+        src={"/assets/imgs/others/landing-circle-arrow.svg"}
         width={0}
         height={0}
         sizes="100%"
@@ -28,7 +28,7 @@ export const CircleImage = ({ loading }: { loading: boolean }) => {
       />
       <div className={heroStyles.circleImageMobileContainer}>
         <motion.img
-          src={"/assets/img/others/landing-circle-arrow-mb.png"}
+          src={"/assets/imgs/others/landing-circle-arrow.svg"}
           width={0}
           height={0}
           sizes="100%"

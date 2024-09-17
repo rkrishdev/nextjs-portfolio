@@ -1,7 +1,7 @@
 "use client";
 
 import { HamburgerMenuToggleProps } from "@/types/types";
-import navbarStyles from "../../styles/navbar.module.css";
+import navbarStyles from "@/styles/navbar.module.css";
 import { motion } from "framer-motion";
 
 export const Hamburger = ({

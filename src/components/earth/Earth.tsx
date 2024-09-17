@@ -37,10 +37,10 @@ export default function Earth() {
     TextureLoader,
     useMemo(
       () => [
-        "/assets/img/3d/1659628176600.jpg",
-        "/assets/img/3d/normal.png",
-        "/assets/img/3d/occlusion.jpg",
-        "/assets/img/3d/Earth-clouds.png",
+        "/assets/imgs/3d/1659628176600.jpg",
+        "/assets/imgs/3d/normal.png",
+        "/assets/imgs/3d/occlusion.jpg",
+        "/assets/imgs/3d/Earth-clouds.png",
       ],
       []
     )

@@ -1,10 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import defaultStyles from "../../styles/default.module.css";
-import footerStyles from "../../styles/footer.module.css";
-import { montserrat } from "../../ui/fonts";
-import { Logo } from "./Logo";
+import defaultStyles from "@/styles/default.module.css";
+import footerStyles from "@/styles/footer.module.css";
+import { montserrat } from "@/ui/fonts";
+import { Logo } from "../others/Logo";
 import useScrollTo from "@/hooks/useScrollTo";
 
 export const Footer = () => {
@@ -31,7 +31,7 @@ export const Footer = () => {
         onClick={() => handleScroll("home")}
       >
         <Image
-          src={"/assets/img/others/arrow.svg"}
+          src={"/assets/imgs/others/arrow.svg"}
           width={0}
           height={0}
           sizes="100%"

@@ -21,7 +21,7 @@ export const Gradient = ({
   const { scrollYProgress } = useScroll();
   const [revealComplete, setRevealComplete] = useState(false);
 
-  const scrollScale = useTransform(scrollYProgress, [0, 1], [1, 1.4]);
+  const scrollScale = useTransform(scrollYProgress, [0, 1], [1, 1.6]);
 
   const scaleRef = useRef(1.3);
   const [scale, setScale] = useState(1.3);
@@ -58,7 +58,7 @@ export const Gradient = ({
           style={{ overflow: "hidden" }}
         >
           <motion.img
-            src={"/assets/img/background/landing-bg.webp"}
+            src={"/assets/imgs/background/landing-bg.webp"}
             width={0}
             height={0}
             sizes="100vw"
@@ -71,7 +71,7 @@ export const Gradient = ({
           />
         </div>
         <Image
-          src={"/assets/img/background/landing-gradient.webp"}
+          src={"/assets/imgs/background/landing-gradient.webp"}
           width={0}
           height={0}
           sizes="100%"

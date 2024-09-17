@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="115" height="115" viewBox="0 0 115 115">
+  <defs>
+    <filter id="Ellipse_2" x="0" y="0" width="115" height="115" filterUnits="userSpaceOnUse">
+      <feOffset dy="1" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-color="#58cecb" flood-opacity="0.627"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Line_5" x="48.5" y="27.75" width="19" height="57.5" filterUnits="userSpaceOnUse">
+      <feOffset dy="1" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-2"/>
+      <feFlood flood-color="#58cecb" flood-opacity="0.627"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Line_6" x="38.616" y="55.93" width="28.768" height="30.64" filterUnits="userSpaceOnUse">
+      <feOffset dy="1" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-3"/>
+      <feFlood flood-color="#58cecb" flood-opacity="0.627"/>
+      <feComposite operator="in" in2="blur-3"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Line_7" x="48.6" y="55.95" width="27.8" height="30.6" filterUnits="userSpaceOnUse">
+      <feOffset dy="1" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-4"/>
+      <feFlood flood-color="#58cecb" flood-opacity="0.627"/>
+      <feComposite operator="in" in2="blur-4"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_47" data-name="Group 47" transform="translate(-1608 -801)">
+    <g transform="matrix(1, 0, 0, 1, 1608, 801)" filter="url(#Ellipse_2)">
+      <g id="Ellipse_2-2" data-name="Ellipse 2" transform="translate(9 8)" fill="none" stroke="#58cecb" stroke-width="1">
+        <circle cx="48.5" cy="48.5" r="48.5" stroke="none"/>
+        <circle cx="48.5" cy="48.5" r="48" fill="none"/>
+      </g>
+    </g>
+    <g id="Group_39" data-name="Group 39">
+      <g transform="matrix(1, 0, 0, 1, 1608, 801)" filter="url(#Line_5)">
+        <line id="Line_5-2" data-name="Line 5" y2="39.5" transform="translate(58 35.75)" fill="none" stroke="#58cecb" stroke-width="1"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 1608, 801)" filter="url(#Line_6)">
+        <line id="Line_6-2" data-name="Line 6" x2="10" y2="12" transform="translate(48 64.25)" fill="none" stroke="#58cecb" stroke-width="1"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 1608, 801)" filter="url(#Line_7)">
+        <line id="Line_7-2" data-name="Line 7" x1="9" y2="12" transform="translate(58 64.25)" fill="none" stroke="#58cecb" stroke-width="1"/>
+      </g>
+    </g>
+  </g>
+</svg>

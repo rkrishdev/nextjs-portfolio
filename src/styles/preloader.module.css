@@ -16,7 +16,7 @@
 
 .loadingText {
   position: absolute;
-  bottom: 2.5vw;
+  bottom: 2.25vw;
   left: 5vw;
   font-size: calc(16px + 0.6vw);
 }

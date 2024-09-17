@@ -1,8 +1,8 @@
 "use client";
 
 import { medium, montserrat } from "@/ui/fonts";
-import defaultStyles from "../../styles/default.module.css";
-import preloaderStyles from "../../styles/preloader.module.css";
+import defaultStyles from "@/styles/default.module.css";
+import preloaderStyles from "@/styles/preloader.module.css";
 import { usePreloader } from "@/context/PreloaderContext";
 import { useEffect, useState } from "react";
 import { useLenis } from "lenis/react";
@@ -61,7 +61,7 @@ export const Preloader = () => {
           loading ? "" : defaultStyles.textRevealInitial,
         ].join(" ")}
       >
-        Loading!
+        Loading! please wait...
       </h2>
     </motion.div>
   );

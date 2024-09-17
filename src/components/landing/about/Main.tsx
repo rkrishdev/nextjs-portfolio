@@ -17,7 +17,7 @@ export const About = () => {
     >
       <div className={aboutStyles.imageContainer}>
         <Image
-          src={"/assets/img/others/rk.JPG"}
+          src={"/assets/imgs/others/rk.JPG"}
           width={0}
           height={0}
           sizes="100%"

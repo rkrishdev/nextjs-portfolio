@@ -1,5 +1,5 @@
-import { medium } from "../../ui/fonts";
-import navbarStyles from "../../styles/navbar.module.css";
+import { medium } from "@/ui/fonts";
+import navbarStyles from "@/styles/navbar.module.css";
 
 export const Logo = () => {
   return (

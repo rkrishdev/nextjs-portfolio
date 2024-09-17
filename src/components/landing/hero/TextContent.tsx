@@ -38,7 +38,7 @@ export const TextContent = ({
         <div style={{ overflow: "hidden" }}>
           <motion.img
             className={heroStyles.nameText}
-            src={"/assets/img/others/fullname.png"}
+            src={"/assets/imgs/others/fullname.png"}
             width={0}
             height={0}
             sizes="100vw"

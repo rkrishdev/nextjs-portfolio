@@ -1,6 +1,6 @@
 .container {
   display: flex;
-  margin: 12vw auto 0vw auto;
+  margin: 6vw auto 0vw auto;
 }
 
 @media screen and (max-width: 1000px) {

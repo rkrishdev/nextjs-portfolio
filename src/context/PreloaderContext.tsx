@@ -45,10 +45,10 @@ export const PreloaderProvider = ({
       console.error(`There was an error loading ${url}`);
     };
 
-    loader.load("/assets/img/3d/1659628176600.jpg");
-    loader.load("/assets/img/3d/normal.png");
-    loader.load("/assets/img/3d/occlusion.jpg");
-    loader.load("/assets/img/3d/Earth-clouds.png");
+    loader.load("/assets/imgs/3d/1659628176600.jpg");
+    loader.load("/assets/imgs/3d/normal.png");
+    loader.load("/assets/imgs/3d/occlusion.jpg");
+    loader.load("/assets/imgs/3d/Earth-clouds.png");
   }, []);
 
   return (

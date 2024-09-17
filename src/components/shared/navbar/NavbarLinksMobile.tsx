@@ -1,6 +1,6 @@
 import { medium, montserrat } from "@/ui/fonts";
-import defaultStyles from "../../styles/default.module.css";
-import navbarStyles from "../../styles/navbar.module.css";
+import defaultStyles from "@/styles/default.module.css";
+import navbarStyles from "@/styles/navbar.module.css";
 import useScrollTo from "@/hooks/useScrollTo";
 import Link from "next/link";
 import Image from "next/image";
@@ -70,21 +70,21 @@ export const NavbarLinksMobile = ({
     {
       target: "_self",
       href: "mailto:rakshank016@gmail.com",
-      src: "/assets/img/icons/mail.svg",
+      src: "/assets/imgs/icons/mail.svg",
       alt: "Mail",
       delay: 5 * delayMultiplier,
     },
     {
       target: "_blank",
       href: "https://in.linkedin.com/in/rakshankrishnan-s-899a1219a",
-      src: "/assets/img/icons/linkedin.svg",
+      src: "/assets/imgs/icons/linkedin.svg",
       alt: "LinkedIn",
       delay: 6 * delayMultiplier,
     },
     {
       target: "_blank",
       href: "https://github.com/rkrishdev",
-      src: "/assets/img/icons/github.svg",
+      src: "/assets/imgs/icons/github.svg",
       alt: "GitHub",
       delay: 7 * delayMultiplier,
     },
@@ -141,7 +141,9 @@ export const NavbarLinksMobile = ({
             <motion.div {...itemAnimation(0.225)} style={{ width: "100%" }}>
               <Link
                 target="_blank"
-                href={"https://google.com"}
+                href={
+                  "https://drive.google.com/file/d/1D5EHgki6xmE53fYcXiz7DEaaZoSlYoYS/view?usp=sharing"
+                }
                 className={buttonClassName}
               >
                 Resume

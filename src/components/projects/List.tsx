@@ -14,7 +14,7 @@ const projectData = [
     title: "JMJ Housing",
     description:
       "A popular real estate website in India. This was my first React application. It uses Next.js app router.",
-    imageSrc: "/assets/img/projects/jmjhousing.webp",
+    imageSrc: "/assets/imgs/projects/jmjhousing.webp",
     buttons: ["Next.js"],
     link: "https://jmjhousing.com",
   },
@@ -22,7 +22,7 @@ const projectData = [
     title: "Yurik Technologies",
     description:
       "Redesigned my currently employed company's website with my design input.",
-    imageSrc: "/assets/img/projects/yuriktechnologies.webp",
+    imageSrc: "/assets/imgs/projects/yuriktechnologies.webp",
     buttons: ["PHP", "CodeIgniter"],
     link: "https://yuriktechnologies.com",
   },
@@ -30,7 +30,7 @@ const projectData = [
     title: "Her Little Pattisserie",
     description:
       "This was a critical project, as I had to develop the website without any UI/UX design.",
-    imageSrc: "/assets/img/projects/herlittlepattisserie.webp",
+    imageSrc: "/assets/imgs/projects/herlittlepattisserie.webp",
     buttons: ["PHP", "Laravel"],
     link: "https://herlittlepattisserie.com",
   },
@@ -38,7 +38,7 @@ const projectData = [
     title: "Photopointy",
     description:
       "This was my first ever product developed entirely by myself. It is a photography booking app.",
-    imageSrc: "/assets/img/projects/photopointy.webp",
+    imageSrc: "/assets/imgs/projects/photopointy.webp",
     buttons: ["PHP", "CodeIgniter"],
     link: "https://photopointy.com",
   },
@@ -132,7 +132,7 @@ export const List = () => {
             className={projectStyles.linkIcon}
           >
             <Image
-              src={"/assets/img/icons/link.svg"}
+              src={"/assets/imgs/icons/link.svg"}
               width={0}
               height={0}
               sizes="100vw"

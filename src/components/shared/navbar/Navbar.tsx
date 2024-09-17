@@ -1,9 +1,9 @@
 "use client";
 
-import { Logo } from "./Logo";
+import { Logo } from "../others/Logo";
 import { NavbarLinks } from "./NavbarLinks";
 import { NavbarTime } from "./NavbarTime";
-import navbarStyles from "../../styles/navbar.module.css";
+import navbarStyles from "@/styles/navbar.module.css";
 import { Hamburger } from "./Hamburger";
 import useScrollTo from "@/hooks/useScrollTo";
 import { useEffect, useRef, useState } from "react";

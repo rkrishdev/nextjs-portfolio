@@ -1,9 +1,9 @@
 "use client";
 
 import useScrollTo from "@/hooks/useScrollTo";
-import defaultStyles from "../../styles/default.module.css";
-import navbarStyles from "../../styles/navbar.module.css";
-import { montserrat } from "../../ui/fonts";
+import defaultStyles from "@/styles/default.module.css";
+import navbarStyles from "@/styles/navbar.module.css";
+import { montserrat } from "../../../ui/fonts";
 import Link from "next/link";
 
 export const NavbarLinks = ({ currentSection }: { currentSection: string }) => {
@@ -57,7 +57,9 @@ export const NavbarLinks = ({ currentSection }: { currentSection: string }) => {
       <li>
         <Link
           target="_blank"
-          href={"https://google.com"}
+          href={
+            "https://drive.google.com/file/d/1D5EHgki6xmE53fYcXiz7DEaaZoSlYoYS/view?usp=sharing"
+          }
           className={navItemClassName}
         >
           Resume

@@ -1,22 +1,15 @@
 "use client";
 
-import defaultStyles from "../../styles/default.module.css";
-import { montserrat } from "../../ui/fonts";
-import navbarStyles from "../../styles/navbar.module.css";
+import defaultStyles from "@/styles/default.module.css";
+import { montserrat } from "@/ui/fonts";
+import navbarStyles from "@/styles/navbar.module.css";
 import { useState, useEffect } from "react";
 
 export const NavbarTime = () => {
-  const [time, setTime] = useState<string>(
-    new Intl.DateTimeFormat("en-US", {
-      timeZone: "Asia/Kolkata",
-      hour: "numeric",
-      minute: "numeric",
-      hour12: true,
-    }).format(new Date())
-  );
+  const [time, setTime] = useState<string | null>(null);
 
   useEffect(() => {
-    const intervalId = setInterval(() => {
+    const updateTime = () => {
       setTime(
         new Intl.DateTimeFormat("en-US", {
           timeZone: "Asia/Kolkata",
@@ -25,7 +18,10 @@ export const NavbarTime = () => {
           hour12: true,
         }).format(new Date())
       );
-    }, 1000);
+    };
+
+    updateTime();
+    const intervalId = setInterval(updateTime, 1000);
 
     return () => clearInterval(intervalId);
   }, []);

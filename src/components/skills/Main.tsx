@@ -9,7 +9,7 @@ export const Skills = () => {
   return (
     <div id="skills" className={[skillsStyles.container].join(" ")}>
       <Image
-        src={"/assets/img/background/skills-gradient.png"}
+        src={"/assets/imgs/background/skills-gradient.png"}
         width={0}
         height={0}
         sizes="100vw"

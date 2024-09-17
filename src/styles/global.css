@@ -16,11 +16,14 @@
   --container-space-large: 10rem;
 }
 
-html {
-  scrollbar-width: none;
+html,
+body {
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
 }
 
 html {
+  scrollbar-width: none;
   position: relative;
 }
 
@@ -50,7 +53,6 @@ header {
     transparent 78.5%,
     rgba(23, 233, 228, 0.13)
   );
-
   z-index: -1;
 }
 

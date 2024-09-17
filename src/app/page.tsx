@@ -4,9 +4,9 @@ import { Quote } from "@/components/landing/quote/Quote";
 import { Skills } from "@/components/skills/Main";
 import { Projects } from "@/components/projects/Main";
 import { Contact } from "@/components/contact/Contact";
-import { Footer } from "@/components/shared/Footer";
-import { LargeGradientBg } from "@/components/shared/LargeGradientBg";
-import { Preloader } from "@/components/shared/Preloader";
+import { Footer } from "@/components/shared/footer/Footer";
+import { LargeGradientBg } from "@/components/shared/others/LargeGradientBg";
+import { Preloader } from "@/components/shared/others/Preloader";
 
 export default function Home() {
   return (

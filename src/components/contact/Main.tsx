@@ -16,7 +16,7 @@ export const Main = () => {
     <div className={contactStyles.mainContainer}>
       <div>
         <Image
-          src={"/assets/img/background/contact-computer.jpeg"}
+          src={"/assets/imgs/background/contact-computer.jpeg"}
           width={0}
           height={0}
           sizes="100vw"
@@ -80,7 +80,7 @@ export const Main = () => {
               ].join(" ")}
             >
               <Image
-                src={"/assets/img/icons/linkedin.svg"}
+                src={"/assets/imgs/icons/linkedin.svg"}
                 width={0}
                 height={0}
                 sizes="100vw"
@@ -97,7 +97,7 @@ export const Main = () => {
               ].join(" ")}
             >
               <Image
-                src={"/assets/img/icons/github.svg"}
+                src={"/assets/imgs/icons/github.svg"}
                 width={0}
                 height={0}
                 sizes="100vw"
