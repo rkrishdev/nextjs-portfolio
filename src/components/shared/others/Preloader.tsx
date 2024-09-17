@@ -57,6 +57,7 @@ export const Preloader = () => {
         className={[
           medium.className,
           defaultStyles.textPrimary,
+          defaultStyles.textNormal,
           preloaderStyles.loadingText,
           loading ? "" : defaultStyles.textRevealInitial,
         ].join(" ")}

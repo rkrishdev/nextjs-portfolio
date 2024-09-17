@@ -11,19 +11,21 @@
 }
 
 .percentText {
-  font-size: calc(20px + 1vw);
+  font-size: calc(18px + 1.25vw);
 }
 
 .loadingText {
   position: absolute;
   bottom: 2.25vw;
   left: 5vw;
-  font-size: calc(16px + 0.6vw);
+  font-size: calc(16px + 0.5vw);
 }
 
 @media screen and (max-width: 1000px) {
   .loadingText {
+    font-size: calc(12px + 0.5vw);
     bottom: 2rem;
-    left: 2rem;
+    left: 0;
+    margin: 0 2rem;
   }
 }
