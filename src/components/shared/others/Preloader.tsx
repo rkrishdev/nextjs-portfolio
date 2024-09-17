@@ -18,6 +18,7 @@ export const Preloader = () => {
     if (loading) {
       lenis?.stop();
     } else {
+      window.scrollTo(0, 0);
       setTimeout(() => {
         lenis?.start();
       }, 1400);
