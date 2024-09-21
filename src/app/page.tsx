@@ -14,9 +14,11 @@ export default function Home() {
       <Preloader />
       <MainContent />
       <About />
-      <Quote />
-      <Skills />
-      <Projects />
+      <div style={{ overflowX: "hidden" }}>
+        <Quote />
+        <Skills />
+        <Projects />
+      </div>
       <Contact />
       <Footer />
       <LargeGradientBg />

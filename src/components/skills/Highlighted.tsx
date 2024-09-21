@@ -93,7 +93,7 @@ export const Highlighted = () => {
           <h6
             className={[montserrat.className, defaultStyles.text2XL].join(" ")}
           >
-            TailwindCSS
+            Tailwind CSS
           </h6>
         </div>
       </div>
