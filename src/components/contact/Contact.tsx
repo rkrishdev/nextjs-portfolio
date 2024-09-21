@@ -1,4 +1,4 @@
-import { medium } from "@/ui/fonts";
+import { medium } from "@/styles/fonts/fonts";
 import defaultStyles from "@/styles/default.module.css";
 import contactStyles from "@/styles/contact.module.css";
 import { Line } from "./Line";
@@ -10,7 +10,7 @@ export const Contact = () => {
       id="contact"
       className={[
         defaultStyles.sectionSpace,
-        defaultStyles.containerSpace        
+        defaultStyles.containerSpace,
       ].join(" ")}
     >
       <div className={contactStyles.headingContainer}>

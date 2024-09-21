@@ -2,7 +2,7 @@
 
 import defaultStyles from "@/styles/default.module.css";
 import projectStyles from "@/styles/project.module.css";
-import { medium, montserrat } from "@/ui/fonts";
+import { medium, montserrat } from "@/styles/fonts/fonts";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -117,14 +117,14 @@ export const List = () => {
         </p>
         <div className={projectStyles.buttonContainer}>
           {project.buttons.map((button: string) => (
-            <button
+            <div
               className={[montserrat.className, projectStyles.btnSmall].join(
                 " "
               )}
               key={button}
             >
               {button}
-            </button>
+            </div>
           ))}
           <Link
             href={project.link}

@@ -1,7 +1,7 @@
 "use client";
 
 import defaultStyles from "@/styles/default.module.css";
-import { medium, montserrat } from "@/ui/fonts";
+import { medium, montserrat } from "@/styles/fonts/fonts";
 import earthStyles from "@/styles/earth.module.css";
 import dynamic from "next/dynamic";
 import { useRevealInView } from "@/hooks/useRevealInView";

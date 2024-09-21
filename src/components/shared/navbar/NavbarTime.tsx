@@ -1,7 +1,7 @@
 "use client";
 
 import defaultStyles from "@/styles/default.module.css";
-import { montserrat } from "@/ui/fonts";
+import { montserrat } from "@/styles/fonts/fonts";
 import navbarStyles from "@/styles/navbar.module.css";
 import { useState, useEffect } from "react";
 

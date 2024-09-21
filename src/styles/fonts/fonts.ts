@@ -2,7 +2,7 @@ import { Montserrat } from "next/font/google";
 import localFont from "next/font/local";
 
 export const medium = localFont({
-  src: "../../public/assets/fonts/medium/medium.otf",
+  src: "../../../public/assets/fonts/medium/medium.otf",
   display: "swap",
   variable: "--medium",
 });

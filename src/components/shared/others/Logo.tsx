@@ -1,4 +1,4 @@
-import { medium } from "@/ui/fonts";
+import { medium } from "@/styles/fonts/fonts";
 import navbarStyles from "@/styles/navbar.module.css";
 
 export const Logo = () => {

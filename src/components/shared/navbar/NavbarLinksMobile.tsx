@@ -1,4 +1,4 @@
-import { medium, montserrat } from "@/ui/fonts";
+import { medium, montserrat } from "@/styles/fonts/fonts";
 import defaultStyles from "@/styles/default.module.css";
 import navbarStyles from "@/styles/navbar.module.css";
 import useScrollTo from "@/hooks/useScrollTo";

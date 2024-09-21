@@ -3,7 +3,7 @@
 import useScrollTo from "@/hooks/useScrollTo";
 import defaultStyles from "@/styles/default.module.css";
 import navbarStyles from "@/styles/navbar.module.css";
-import { montserrat } from "../../../ui/fonts";
+import { montserrat } from "@/styles/fonts/fonts";
 import Link from "next/link";
 
 export const NavbarLinks = ({ currentSection }: { currentSection: string }) => {

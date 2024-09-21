@@ -2,7 +2,7 @@
 
 import skillsStyles from "@/styles/skills.module.css";
 import defaultStyles from "@/styles/default.module.css";
-import { montserrat } from "@/ui/fonts";
+import { montserrat } from "@/styles/fonts/fonts";
 import Image from "next/image";
 import { useRevealInView } from "@/hooks/useRevealInView";
 
@@ -93,7 +93,7 @@ export const Highlighted = () => {
           <h6
             className={[montserrat.className, defaultStyles.text2XL].join(" ")}
           >
-            Tailwind CSS
+            TailwindCSS
           </h6>
         </div>
       </div>

@@ -3,7 +3,7 @@
 import Image from "next/image";
 import defaultStyles from "@/styles/default.module.css";
 import footerStyles from "@/styles/footer.module.css";
-import { montserrat } from "@/ui/fonts";
+import { montserrat } from "@/styles/fonts/fonts";
 import { Logo } from "../others/Logo";
 import useScrollTo from "@/hooks/useScrollTo";
 

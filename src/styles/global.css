@@ -51,7 +51,7 @@ header {
   background: linear-gradient(
     160deg,
     transparent 78.5%,
-    rgba(23, 233, 228, 0.13)
+    rgba(23, 233, 228, 0.2)
   );
   z-index: -1;
 }

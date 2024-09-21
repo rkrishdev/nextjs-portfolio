@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { medium, montserrat } from "@/ui/fonts";
+import { medium, montserrat } from "@/styles/fonts/fonts";
 import defaultStyles from "@/styles/default.module.css";
 import contactStyles from "@/styles/contact.module.css";
 import Link from "next/link";
@@ -16,7 +16,7 @@ export const Main = () => {
     <div className={contactStyles.mainContainer}>
       <div>
         <Image
-          src={"/assets/imgs/background/contact-computer.jpeg"}
+          src={"/assets/imgs/background/contact-computer.webp"}
           width={0}
           height={0}
           sizes="100vw"

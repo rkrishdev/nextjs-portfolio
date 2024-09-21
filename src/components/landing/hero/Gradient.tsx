@@ -1,6 +1,6 @@
 import defaultStyles from "@/styles/default.module.css";
 import heroStyles from "@/styles/hero.module.css";
-import { montserrat } from "@/ui/fonts";
+import { montserrat } from "@/styles/fonts/fonts";
 import {
   motion,
   useScroll,

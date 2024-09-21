@@ -2,7 +2,7 @@
 
 import defaultStyles from "@/styles/default.module.css";
 import aboutStyles from "@/styles/about.module.css";
-import { medium, montserrat } from "@/ui/fonts";
+import { medium, montserrat } from "@/styles/fonts/fonts";
 import { useRevealInView } from "@/hooks/useRevealInView";
 
 const TextContent = () => {

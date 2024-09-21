@@ -1,6 +1,6 @@
 "use client";
 
-import { medium, montserrat } from "@/ui/fonts";
+import { medium, montserrat } from "@/styles/fonts/fonts";
 import defaultStyles from "@/styles/default.module.css";
 import preloaderStyles from "@/styles/preloader.module.css";
 import { usePreloader } from "@/context/PreloaderContext";
