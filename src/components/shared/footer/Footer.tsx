@@ -22,7 +22,7 @@ export const Footer = () => {
           className={[defaultStyles.textNormal, montserrat.className].join(" ")}
         >
           2024 Edition.
-          Designed and developed all by Rakshankrishnan S.
+          Designed and developed by Rakshankrishnan S.
         </p>
       </div>
       <button
