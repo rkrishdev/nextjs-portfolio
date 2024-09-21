@@ -116,9 +116,8 @@
 
 .contactButton span {
   position: absolute;
-  background-color: var(--primary);
+  background-color: transparent;
   box-shadow: 0 0 0.25vw var(--shadow-primary);
-  transform: translateZ(0);
 }
 
 @media screen and (max-width: 1000px) {
@@ -127,101 +126,55 @@
   }
 }
 
-.contactButton span:first-child {
+.contactButton span:nth-child(odd) {
   width: 0.9vw;
-  height: 0.05vw;
-  top: 0;
-  left: 0;
+  height: 0;
+  border-top: 0.1vw solid var(--primary);
 }
 
-.contactButton span:nth-child(2) {
+.contactButton span:nth-child(even) {
   height: 0.9vw;
-  width: 0.05vw;
-  top: 0;
-  left: 0;
+  width: 0;
+  border-left: 0.1vw solid var(--primary);
 }
 
-.contactButton span:nth-child(3) {
-  width: 0.9vw;
-  height: 0.05vw;
-  top: 0;
-  right: 0;
-}
-
-.contactButton span:nth-child(4) {
-  height: 0.9vw;
-  width: 0.05vw;
-  top: 0;
-  right: 0;
-}
-
-.contactButton span:nth-child(5) {
-  width: 0.9vw;
-  height: 0.05vw;
-  bottom: 0;
-  left: 0;
-}
-
+.contactButton span:nth-child(1),
+.contactButton span:nth-child(2),
+.contactButton span:nth-child(5),
 .contactButton span:nth-child(6) {
-  height: 0.9vw;
-  width: 0.05vw;
-  bottom: 0;
   left: 0;
 }
 
-.contactButton span:nth-child(7) {
-  width: 0.9vw;
-  height: 0.05vw;
-  bottom: 0;
+.contactButton span:nth-child(3),
+.contactButton span:nth-child(4),
+.contactButton span:nth-child(7),
+.contactButton span:nth-child(8) {
   right: 0;
 }
 
+.contactButton span:nth-child(1),
+.contactButton span:nth-child(2),
+.contactButton span:nth-child(3),
+.contactButton span:nth-child(4) {
+  top: 0;
+}
+
+.contactButton span:nth-child(5),
+.contactButton span:nth-child(6),
+.contactButton span:nth-child(7),
 .contactButton span:nth-child(8) {
-  height: 0.9vw;
-  width: 0.05vw;
   bottom: 0;
-  right: 0;
 }
 
 @media screen and (max-width: 1000px) {
-  .contactButton span:first-child {
+  .contactButton span:nth-child(odd) {
     width: 0.75rem;
-    height: 1px;
+    border-top-width: 1px;
   }
 
-  .contactButton span:nth-child(2) {
+  .contactButton span:nth-child(even) {
     height: 0.75rem;
-    width: 1px;
-  }
-
-  .contactButton span:nth-child(3) {
-    width: 0.75rem;
-    height: 1px;
-  }
-
-  .contactButton span:nth-child(4) {
-    height: 0.75rem;
-    width: 1px;
-  }
-
-  .contactButton span:nth-child(5) {
-    width: 0.75rem;
-    height: 1px;
-  }
-
-  .contactButton span:nth-child(6) {
-    height: 0.75rem;
-    width: 1px;
-  }
-
-  .contactButton span:nth-child(7) {
-    width: 0.75rem;
-    height: 1px;
-  }
-
-  .contactButton span:nth-child(8) {
-    height: 0.75rem;
-    width: 1px;
+    border-left-width: 1px;
   }
 }
 
