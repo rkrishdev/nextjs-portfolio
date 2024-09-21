@@ -29,7 +29,7 @@ const TextContent = () => {
           className={[
             montserrat.className,
             defaultStyles.textLarge,
-            defaultStyles.textSpace,
+            defaultStyles.textSpaceLarge,
           ].join(" ")}
         >
           I&apos;m working at a
@@ -44,7 +44,7 @@ const TextContent = () => {
           className={[
             montserrat.className,
             defaultStyles.textLarge,
-            defaultStyles.textSpace,
+            defaultStyles.textSpaceLarge,
           ].join(" ")}
         >
           In my current role, I have been leading and guiding a small team of
@@ -56,7 +56,7 @@ const TextContent = () => {
           className={[
             montserrat.className,
             defaultStyles.textLarge,
-            defaultStyles.textSpace,
+            defaultStyles.textSpaceLarge,
           ].join(" ")}
         >
           Now, I&apos;m interested in any opportunites. So, in short, I&apos;m:
