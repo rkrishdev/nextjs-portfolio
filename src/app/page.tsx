@@ -7,6 +7,7 @@ import { Contact } from "@/components/contact/Contact";
 import { Footer } from "@/components/shared/footer/Footer";
 import { LargeGradientBg } from "@/components/shared/others/LargeGradientBg";
 import { Preloader } from "@/components/shared/others/Preloader";
+import { ParticlesBg } from "@/components/shared/others/ParticlesBg";
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
       </div>
       <Contact />
       <Footer />
+      <ParticlesBg />
       <LargeGradientBg />
     </>
   );
