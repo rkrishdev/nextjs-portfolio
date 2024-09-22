@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="2104.886" height="1622.482" viewBox="0 0 2104.886 1622.482">
   <defs>
-    <radialGradient id="radial-gradient" cx="0.5" cy="0.5" r="0.514" gradientTransform="translate(0 0)" gradientUnits="objectBoundingBox">
+    <radialGradient id="radial-gradient" cx="0.5" cy="0.5" r="0.598" gradientUnits="objectBoundingBox">
       <stop offset="0" stop-color="#17e9e4" stop-opacity="0.129"/>
       <stop offset="0.462" stop-color="#17e9e4" stop-opacity="0.051"/>
       <stop offset="1" stop-color="gray" stop-opacity="0"/>

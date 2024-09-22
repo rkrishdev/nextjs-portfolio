@@ -10,10 +10,10 @@
 }
 
 .bgImage {
-  width: 125vw;
+  width: 150vw;
   height: auto;
   position: absolute;
-  top: -27.5vw;
+  top: -42.5vw;
   left: 50%;
   transform: translateX(-50%);
   z-index: -1;
