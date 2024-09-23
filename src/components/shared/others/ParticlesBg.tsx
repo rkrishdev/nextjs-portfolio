@@ -12,9 +12,9 @@ const Particles = ({ numParticles }: { numParticles: number }) => {
     const positions = [];
     for (let i = 0; i < numParticles; i++) {
       positions.push([
-        Math.random() * 10 - 5,
-        Math.random() * 10 - 5,
-        Math.random() * 10 - 5,
+        Math.random() * 10 - 7,
+        Math.random() * 10 - 7,
+        Math.random() * 10 - 7,
       ]);
     }
     return positions;
@@ -53,7 +53,7 @@ const Particles = ({ numParticles }: { numParticles: number }) => {
 };
 
 export const ParticlesBg = () => {
-  const numParticles = 1100;
+  const numParticles = 500;
 
   return (
     <div className={particleStyles.canvasWrapper}>
