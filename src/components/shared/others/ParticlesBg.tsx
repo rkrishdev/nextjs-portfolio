@@ -11,10 +11,7 @@ interface Particle {
   velY: number;
 }
 
-const createParticle = (
-  canvasWidth: number,
-  canvasHeight: number
-): Particle => {
+const createParticle = (canvasWidth: number, canvasHeight: number): Particle => {
   return {
     x: Math.random() * canvasWidth,
     y: Math.random() * canvasHeight,
@@ -26,13 +23,17 @@ const createParticle = (
 
 export const ParticlesBg = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const numParticles = 150;
+  const numParticles = 200;
+  const particles = useRef<Particle[]>([]);
 
   const resizeCanvas = () => {
     const canvas = canvasRef.current;
     if (canvas) {
       canvas.width = document.body.clientWidth;
       canvas.height = document.body.clientHeight;
+
+      const { width, height } = canvas;
+      particles.current = Array.from({ length: numParticles }, () => createParticle(width, height));
     }
   };
 
@@ -44,30 +45,28 @@ export const ParticlesBg = () => {
     if (!context) return;
 
     resizeCanvas();
-    const { width, height } = canvas;
-    const particles: Particle[] = Array.from({ length: numParticles }, () =>
-      createParticle(width, height)
-    );
 
     const render = () => {
+      const { width, height } = canvas;
       context.clearRect(0, 0, width, height);
-
-      particles.forEach((particle, index) => {
+      context.globalCompositeOperation = "source-over";
+      
+      particles.current.forEach((particle, index) => {
         particle.x += particle.velX;
         particle.y += particle.velY;
 
         if (particle.x > width) {
-          particles[index] = createParticle(width, height);
-          particles[index].x = 0;
-          particles[index].y = Math.random() * height;
+          particles.current[index] = createParticle(width, height);
+          particles.current[index].x = 0;
+          particles.current[index].y = Math.random() * height;
         } else if (particle.y < 0) {
-          particles[index] = createParticle(width, height);
-          particles[index].x = Math.random() * width;
-          particles[index].y = height;
+          particles.current[index] = createParticle(width, height);
+          particles.current[index].x = Math.random() * width;
+          particles.current[index].y = height;
         } else if (particle.y > height) {
-          particles[index] = createParticle(width, height);
-          particles[index].x = Math.random() * width;
-          particles[index].y = 0;
+          particles.current[index] = createParticle(width, height);
+          particles.current[index].x = Math.random() * width;
+          particles.current[index].y = 0;
         }
 
         context.beginPath();
