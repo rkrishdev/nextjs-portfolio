@@ -58,7 +58,6 @@ export const ParticlesBg = () => {
     const render = () => {
       const { width, height } = canvas;
       context.clearRect(0, 0, width, height);
-      context.globalCompositeOperation = "source-over";
 
       particles.current.forEach((particle, index) => {
         particle.x += particle.velX;
