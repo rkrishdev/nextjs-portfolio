@@ -94,11 +94,11 @@ export const ParticlesBg = () => {
 
     render();
 
-    window.addEventListener("resize", resizeCanvas);
+    /*    window.addEventListener("resize", resizeCanvas);
 
     return () => {
       window.removeEventListener("resize", resizeCanvas);
-    };
+    }; */
   }, [numParticles]);
 
   return (
