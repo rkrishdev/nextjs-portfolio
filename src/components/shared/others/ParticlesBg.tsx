@@ -2,7 +2,6 @@
 
 import { useEffect, useRef } from "react";
 import particleStyles from "@/styles/particles-bg.module.css";
-import { usePreloader } from "@/context/PreloaderContext";
 
 interface Particle {
   x: number;
@@ -29,7 +28,6 @@ const createParticle = (
 };
 
 export const ParticlesBg = () => {
-  const { initParticles } = usePreloader();
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const numParticles = 200;
   const particles = useRef<Particle[]>([]);
@@ -88,16 +86,14 @@ export const ParticlesBg = () => {
       requestAnimationFrame(render);
     };
 
-    if (initParticles) {
-      render();
-    }
+    render();
 
     window.addEventListener("resize", resizeCanvas);
 
     return () => {
       window.removeEventListener("resize", resizeCanvas);
     };
-  }, [numParticles, initParticles]);
+  }, [numParticles]);
 
   return (
     <div className={particleStyles.canvasWrapper}>
