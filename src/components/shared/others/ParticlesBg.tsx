@@ -2,6 +2,14 @@
 
 import { useEffect, useRef, useCallback } from "react";
 import particleStyles from "@/styles/particles-bg.module.css";
+import debounce from "lodash.debounce";
+
+const MAX_PARTICLES_LARGE = 175;
+const MAX_PARTICLES_SMALL = 15;
+const SIZE_LARGE_MIN = 0.2;
+const SIZE_LARGE_MAX = 0.85;
+const SIZE_SMALL_MIN = 0.2;
+const SIZE_SMALL_MAX = 0.75;
 
 interface Particle {
   x: number;
@@ -14,22 +22,19 @@ interface Particle {
 const createParticle = (
   canvasWidth: number,
   canvasHeight: number
-): Particle => {
-  return {
-    x: Math.random() * canvasWidth,
-    y: Math.random() * canvasHeight,
-    size:
-      canvasWidth > 1000
-        ? Math.random() * 0.85 + 0.2
-        : Math.random() * 0.65 + 0.2,
-    velX:
-      canvasWidth > 1000 ? Math.random() * 5 + 1.5 : Math.random() * 1.5 + 0.25,
-    velY:
-      canvasWidth > 1000
-        ? -Math.random() * 2.5 - 0.75
-        : -Math.random() * 2 - 0.5,
-  };
-};
+): Particle => ({
+  x: Math.random() * canvasWidth,
+  y: Math.random() * canvasHeight,
+  size:
+    canvasWidth > 1000
+      ? Math.random() * (SIZE_LARGE_MAX - SIZE_LARGE_MIN) + SIZE_LARGE_MIN
+      : Math.random() * (SIZE_SMALL_MAX - SIZE_SMALL_MIN) + SIZE_SMALL_MIN,
+  velX: canvasWidth > 1000 ? Math.random() * 5 + 1.5 : Math.random() * 3.5 + 1.5,
+  velY:
+    canvasWidth > 1000
+      ? -Math.random() * 2.5 - 0.75
+      : -Math.random() * 2 - 0.75,
+});
 
 export const ParticlesBg = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -52,7 +57,8 @@ export const ParticlesBg = () => {
       canvas.width = width;
       canvas.height = height;
 
-      const numParticles = width > 1000 ? 175 : 15;
+      const numParticles =
+        width > 1000 ? MAX_PARTICLES_LARGE : MAX_PARTICLES_SMALL;
       particles.current = Array.from({ length: numParticles }, () =>
         createParticle(width, height)
       );
@@ -100,13 +106,13 @@ export const ParticlesBg = () => {
     resizeCanvas();
     render();
 
-    const handleResize = () => {
+    const handleResize = debounce(() => {
       const newWidth = window.innerWidth;
       if (prevWidth.current !== newWidth) {
         prevWidth.current = newWidth;
         resizeCanvas();
       }
-    };
+    }, 250);
 
     window.addEventListener("resize", handleResize);
 
