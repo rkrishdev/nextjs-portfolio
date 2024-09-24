@@ -96,8 +96,8 @@ export const Gradient = ({
           animate={textControls}
           transition={{ duration: 2, ease: "anticipate", delay: 0.1 }}
         >
-          Full Stack Developer, exploring web technologies in my fascinating
-          journey through endeavors
+          I&apos;m a full stack web developer based in India. Exploring my
+          journey through tech endeavors.
         </motion.p>
       </div>
     </>

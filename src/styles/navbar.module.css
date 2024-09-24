@@ -165,7 +165,7 @@
   width: 225px;
   height: fit-content;
   border: 1px solid var(--primary);
-  box-shadow: 0 0 6px var(--shadow-primary);
+  box-shadow: 0 0 4px var(--shadow-primary);
   padding: 2rem;
 }
 

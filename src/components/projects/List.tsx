@@ -85,15 +85,17 @@ export const List = () => {
 
   const renderProject = (project: any) => (
     <div className={projectStyles.listItem} key={project.title}>
-      <Image
-        className={projectStyles.listImage}
-        src={project.imageSrc}
-        width={0}
-        height={0}
-        sizes="100vw"
-        alt={project.title}
-        loading="eager"
-      />
+      <Link href={project.link} target="_blank">
+        <Image
+          className={projectStyles.listImage}
+          src={project.imageSrc}
+          width={0}
+          height={0}
+          sizes="100vw"
+          alt={project.title}
+          loading="eager"
+        />
+      </Link>
       <div className={projectStyles.itemContent}>
         <h3
           className={[

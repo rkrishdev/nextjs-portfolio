@@ -59,7 +59,13 @@
   margin: 2vw 0 1vw 0;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 600px) {
+  .textSpacing {
+    margin: 1rem 0 0.5rem 0;
+  }
+}
+
+@media screen and (min-width: 601px) and (max-width: 1000px) {
   .textSpacing {
     margin: 1.75rem 0 1rem 0;
   }

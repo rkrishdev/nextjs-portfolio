@@ -25,7 +25,7 @@ export const TextContent = ({
           animate={textControls}
           transition={{ duration: 2, ease: "anticipate", delay: 0.1 }}
         >
-          I&apos;m a Full Stack Web Developer based in India. <br />
+          I&apos;m a full stack web developer based in India. <br />
           Exploring my journey through tech endeavors.
         </motion.p>
       </div>
@@ -61,7 +61,7 @@ export const TextContent = ({
             animate={textControls}
             transition={{ duration: 2, ease: "anticipate", delay: 0.1 }}
           >
-            Web developer
+            Full Stack developer
           </motion.h3>
         </div>
         <div style={{ overflow: "hidden" }}>

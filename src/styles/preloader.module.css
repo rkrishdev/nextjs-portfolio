@@ -10,22 +10,51 @@
   background-color: var(--dark);
 }
 
-.percentText {
-  font-size: calc(18px + 1.25vw);
+.svgContainer {
+  width: 12.5vw;
+  height: 12.5vw;
+  transform: rotate(-90deg);
+}
+
+@media screen and (max-width: 1000px) {
+  .svgContainer {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+.svgCircleBg {
+  stroke: var(--button-bg-primary);
+  stroke-width: 1px;
+  fill: transparent;
+  stroke-dasharray: 565.48px;
+  stroke-dashoffset: 0;
+}
+
+.svgCircleProgress {
+  stroke: var(--primary);
+  stroke-width: 1px;
+  stroke-linecap: round;
+  fill: transparent;
+  stroke-dasharray: 565.48px;
+}
+
+.svgText {
+  font-size: 2em;
+  fill: var(--primary);
+  transform: rotate(90deg) translate(0px, -196px);
+  text-anchor: middle;
 }
 
 .loadingText {
   position: absolute;
   bottom: 2.25vw;
   left: 5vw;
-  font-size: calc(16px + 0.5vw);
+  font-size: 1.35vw;
 }
 
 @media screen and (max-width: 1000px) {
   .loadingText {
     font-size: calc(12px + 0.5vw);
-    bottom: 2rem;
-    left: 0;
-    margin: 0 2rem;
   }
 }

@@ -14,6 +14,8 @@ export const Preloader = () => {
   const { loading, progress } = usePreloader();
   const lenis = useLenis();
 
+  const [strokeDashoffset, setStrokeDashoffset] = useState<number>(565.48);
+
   useEffect(() => {
     if (loading) {
       lenis?.stop();
@@ -28,6 +30,13 @@ export const Preloader = () => {
       }, 650);
     }
   }, [lenis, loading]);
+
+  useEffect(() => {
+    const strokeDasharrayPercent = 565.48 / 100;
+    const currentProgress = 565.48 - progress * strokeDasharrayPercent;
+
+    setStrokeDashoffset(currentProgress);
+  }, [progress]);
 
   return (
     <motion.div
@@ -44,16 +53,36 @@ export const Preloader = () => {
       initial={{ translateY: 0 }}
       style={{ display: isVisible ? "flex" : "none" }}
     >
-      <span
+      <svg
         className={[
-          montserrat.className,
-          preloaderStyles.percentText,
-          defaultStyles.textPrimary,
+          preloaderStyles.svgContainer,
           loading ? "" : defaultStyles.textRevealInitial,
         ].join(" ")}
+        viewBox="0 0 200 200"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        {progress}%
-      </span>
+        <circle
+          r="90"
+          cx="100"
+          cy="100"
+          className={preloaderStyles.svgCircleBg}
+        ></circle>
+        <circle
+          r="90"
+          cx="100"
+          cy="100"
+          strokeDashoffset={strokeDashoffset}
+          className={preloaderStyles.svgCircleProgress}
+        ></circle>
+        <text
+          x="50%"
+          y="50%"
+          dominantBaseline="middle"
+          className={[montserrat.className, preloaderStyles.svgText].join(" ")}
+        >
+          {progress}%
+        </text>
+      </svg>
       <h2
         className={[
           medium.className,
