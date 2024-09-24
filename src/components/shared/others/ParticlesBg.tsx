@@ -31,8 +31,11 @@ export const ParticlesBg = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const numParticles = 200;
   const particles = useRef<Particle[]>([]);
+  const screenHeight = useRef<number | null>(null);
+  const screenWidth = useRef<number | null>(null);
 
   const resizeCanvas = () => {
+    console.log("resize canvas");
     const canvas = canvasRef.current;
     if (canvas) {
       canvas.width =
@@ -94,12 +97,30 @@ export const ParticlesBg = () => {
 
     render();
 
-    /*    window.addEventListener("resize", resizeCanvas);
+    const handleResize = () => {
+      const newWidth = window.innerWidth;
+      const newHeight = window.innerHeight;
+      if (
+        screenHeight.current !== newHeight ||
+        screenWidth.current !== newWidth
+      ) {
+        screenWidth.current = newWidth;
+        screenHeight.current = newHeight;
+        resizeCanvas();
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener("resize", resizeCanvas);
-    }; */
+      window.removeEventListener("resize", handleResize);
+    };
   }, [numParticles]);
+
+  useEffect(() => {
+    screenWidth.current = window.innerWidth;
+    screenHeight.current = window.innerHeight;
+  }, []);
 
   return (
     <div className={particleStyles.canvasWrapper}>
