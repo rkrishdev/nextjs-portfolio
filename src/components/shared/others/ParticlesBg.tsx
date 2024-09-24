@@ -2,7 +2,6 @@
 
 import { useEffect, useRef } from "react";
 import particleStyles from "@/styles/particles-bg.module.css";
-import { usePreloader } from "@/context/PreloaderContext";
 
 interface Particle {
   x: number;
@@ -17,20 +16,18 @@ const createParticle = (
   canvasHeight: number
 ): Particle => {
   return {
-    x: Math.random() * canvasWidth + (canvasWidth / 100) * 25,
+    x: Math.random() * canvasWidth,
     y: Math.random() * canvasHeight,
     size:
       canvasWidth > 1000
         ? Math.random() * 1 + 0.25
-        : Math.random() * 0.5 + 0.15,
+        : Math.random() * 0.75 + 0.15,
     velX: Math.random() * 2 + 1,
     velY: -Math.random() * 1.5 - 0.5,
   };
 };
 
 export const ParticlesBg = () => {
-  const { loading } = usePreloader();
-
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const numParticles = 200;
   const particles = useRef<Particle[]>([]);
@@ -90,18 +87,19 @@ export const ParticlesBg = () => {
     };
 
     render();
+
     window.addEventListener("resize", resizeCanvas);
+
+    const observer = new ResizeObserver(() => {
+      resizeCanvas();
+    });
+    observer.observe(document.body);
 
     return () => {
       window.removeEventListener("resize", resizeCanvas);
+      observer.disconnect();
     };
   }, [numParticles]);
-
-  useEffect(() => {
-    if (!loading) {
-      resizeCanvas();
-    }
-  }, [loading]);
 
   return (
     <div className={particleStyles.canvasWrapper}>
