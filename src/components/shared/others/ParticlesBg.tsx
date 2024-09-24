@@ -31,13 +31,9 @@ export const ParticlesBg = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const numParticles = 200;
   const particles = useRef<Particle[]>([]);
-  const screenHeight = useRef<number | null>(null);
-  const screenWidth = useRef<number | null>(null);
   const prevWidth = useRef<number | null>(null);
-  const prevHeight = useRef<number | null>(null);
 
   const resizeCanvas = () => {
-    console.log("resize canvas");
     const canvas = canvasRef.current;
     if (canvas) {
       canvas.width =
@@ -101,11 +97,9 @@ export const ParticlesBg = () => {
 
     const handleResize = () => {
       const newWidth = window.innerWidth;
-      const newHeight = window.innerHeight;
 
       if (prevWidth.current !== newWidth) {
         prevWidth.current = newWidth;
-        prevHeight.current = newHeight;
 
         resizeCanvas();
       }
@@ -119,10 +113,7 @@ export const ParticlesBg = () => {
   }, [numParticles]);
 
   useEffect(() => {
-    screenWidth.current = window.innerWidth;
-    screenHeight.current = window.innerHeight;
     prevWidth.current = window.innerWidth;
-    prevHeight.current = window.innerHeight;
   }, []);
 
   return (
