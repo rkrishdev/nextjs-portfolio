@@ -21,7 +21,7 @@ const createParticle = (
     size:
       canvasWidth > 1000
         ? Math.random() * 0.9 + 0.2
-        : Math.random() * 0.75 + 0.1,
+        : Math.random() * 0.75 + 0.2,
     velX: Math.random() * 2 + 1,
     velY: -Math.random() * 1.5 - 0.5,
   };
