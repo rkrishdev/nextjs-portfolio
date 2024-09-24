@@ -8,6 +8,7 @@ interface PreloaderContextType {
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
   progress: number;
   setProgress: React.Dispatch<React.SetStateAction<number>>;
+  initParticles: boolean;
 }
 
 const PreloaderContext = createContext<PreloaderContextType | undefined>(
@@ -21,6 +22,7 @@ export const PreloaderProvider = ({
 }) => {
   const [loading, setLoading] = useState<boolean>(true);
   const [progress, setProgress] = useState<number>(0);
+  const [initParticles, setInitParticles] = useState<boolean>(false);
 
   useEffect(() => {
     const manager = new LoadingManager();
@@ -32,6 +34,7 @@ export const PreloaderProvider = ({
     };
 
     manager.onLoad = () => {
+      setInitParticles(true);
       setTimeout(() => {
         setLoading(false);
       }, 1000);
@@ -53,7 +56,7 @@ export const PreloaderProvider = ({
 
   return (
     <PreloaderContext.Provider
-      value={{ loading, setLoading, progress, setProgress }}
+      value={{ loading, setLoading, progress, setProgress, initParticles }}
     >
       {children}
     </PreloaderContext.Provider>
