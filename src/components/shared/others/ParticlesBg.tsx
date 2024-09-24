@@ -40,7 +40,7 @@ export const ParticlesBg = () => {
 
       const { width, height } = canvas;
       particles.current = Array.from(
-        { length: canvas.width > 1000 ? numParticles : 25 },
+        { length: canvas.width > 1000 ? numParticles : 10 },
         () => createParticle(width, height)
       );
     }
