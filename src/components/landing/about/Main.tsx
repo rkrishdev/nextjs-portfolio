@@ -24,6 +24,7 @@ export const About = () => {
           alt="circle arrow"
           className={aboutStyles.profileImage}
           priority
+          loading="eager"
         />
       </div>
       <TextContent />
