@@ -24,7 +24,7 @@
 }
 
 .svgCircleBg {
-  stroke: var(--button-bg-primary);
+  stroke: #ffffff44;
   stroke-width: 1px;
   fill: transparent;
   stroke-dasharray: 565.48px;
@@ -56,5 +56,7 @@
 @media screen and (max-width: 1000px) {
   .loadingText {
     font-size: calc(12px + 0.5vw);
+    bottom: 1rem;
+    left: 1.25rem;
   }
 }

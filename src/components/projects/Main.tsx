@@ -40,7 +40,7 @@ export const Projects = () => {
             projectStyles.titleText,
           ].join(" ")}
         >
-          Building large-scale internal products like CRM/ERP panels and dynamic <br />
+          Building large-scale internal products like CRM/ERP panels and dynamic
           websites, with exciting new projects on the way!
         </p>
       </div>

@@ -72,7 +72,6 @@
 }
 
 .imageContainer {
-  position: relative;
   display: flex;
   justify-content: center;
 }
@@ -114,18 +113,25 @@
   position: absolute;
   width: 48vw;
   height: 47.75vw;
-  top: 5%;
-  left: 27%;
+  top: 98%;
+  left: 55.65%;
   z-index: -1;
   object-fit: cover;
+  transform: translate(-50%, -50%);
 }
 
 @media screen and (max-width: 1000px) {
   .gradientImage {
     width: 600px;
     height: 600px;
-    top: -8rem;
-    left: 30vw;
+    top: 40%;
+    left: 75%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .gradientImage {
+    top: 45%;
   }
 }
 

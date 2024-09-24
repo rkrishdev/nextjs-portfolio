@@ -25,7 +25,7 @@ const createParticle = (
     velX:
       canvasWidth > 1000
         ? Math.random() * 1.25 + 0.5
-        : Math.random() * 0.8 + 0.25,
+        : Math.random() * 1.25 + 0.25,
     velY: -Math.random() * 0.8 - 0.25,
   };
 };
@@ -50,7 +50,7 @@ export const ParticlesBg = () => {
       canvas.width = width;
       canvas.height = height;
 
-      const numParticles = width > 1000 ? 200 : 10;
+      const numParticles = width > 1000 ? 200 : 12;
       particles.current = Array.from({ length: numParticles }, () =>
         createParticle(width, height)
       );
