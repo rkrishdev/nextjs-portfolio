@@ -11,11 +11,17 @@ interface Particle {
   velY: number;
 }
 
-const createParticle = (canvasWidth: number, canvasHeight: number): Particle => {
+const createParticle = (
+  canvasWidth: number,
+  canvasHeight: number
+): Particle => {
   return {
-    x: Math.random() * canvasWidth,
+    x: Math.random() * canvasWidth + (canvasWidth / 100) * 25,
     y: Math.random() * canvasHeight,
-    size: Math.random() * 0.75 + 0.25,
+    size:
+      canvasWidth > 1000
+        ? Math.random() * 1 + 0.25
+        : Math.random() * 0.5 + 0.15,
     velX: Math.random() * 2 + 1,
     velY: -Math.random() * 2 - 1,
   };
@@ -33,7 +39,9 @@ export const ParticlesBg = () => {
       canvas.height = document.body.clientHeight;
 
       const { width, height } = canvas;
-      particles.current = Array.from({ length: numParticles }, () => createParticle(width, height));
+      particles.current = Array.from({ length: numParticles }, () =>
+        createParticle(width, height)
+      );
     }
   };
 
@@ -50,7 +58,7 @@ export const ParticlesBg = () => {
       const { width, height } = canvas;
       context.clearRect(0, 0, width, height);
       context.globalCompositeOperation = "source-over";
-      
+
       particles.current.forEach((particle, index) => {
         particle.x += particle.velX;
         particle.y += particle.velY;
