@@ -92,6 +92,7 @@ export const List = () => {
         height={0}
         sizes="100vw"
         alt={project.title}
+        loading="eager"
       />
       <div className={projectStyles.itemContent}>
         <h3
