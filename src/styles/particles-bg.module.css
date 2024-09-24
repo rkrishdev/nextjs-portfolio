@@ -7,3 +7,9 @@
   z-index: -1;
   overflow: hidden;
 }
+
+@media screen and (max-width: 1000px) {
+  .canvasWrapper {
+    position: fixed;
+  }
+}
