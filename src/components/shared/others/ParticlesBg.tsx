@@ -29,7 +29,7 @@ const createParticle = (
 
 export const ParticlesBg = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const numParticles = window.innerWidth > 600 ? 200 : 100;
+  const numParticles = document.body.clientWidth > 600 ? 200 : 100;
   const particles = useRef<Particle[]>([]);
 
   const resizeCanvas = () => {
