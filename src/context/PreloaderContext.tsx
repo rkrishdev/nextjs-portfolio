@@ -34,10 +34,12 @@ export const PreloaderProvider = ({
     };
 
     manager.onLoad = () => {
-      setInitParticles(true);
+      setTimeout(() => {
+        setInitParticles(true);
+      }, 1000);      
       setTimeout(() => {
         setLoading(false);
-      }, 1000);
+      }, 1500);
     };
 
     manager.onProgress = (url, itemsLoaded, itemsTotal) => {
