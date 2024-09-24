@@ -23,6 +23,7 @@ export const Main = () => {
           alt="landing bg"
           className={contactStyles.computerImage}
           priority
+          loading="eager"
         />
       </div>
       <div
