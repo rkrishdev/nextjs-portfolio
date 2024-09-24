@@ -20,8 +20,8 @@ const createParticle = (
     y: Math.random() * canvasHeight,
     size:
       canvasWidth > 1000
-        ? Math.random() * 1 + 0.25
-        : Math.random() * 0.9 + 0.25,
+        ? Math.random() * 0.9 + 0.2
+        : Math.random() * 0.75 + 0.1,
     velX: Math.random() * 2 + 1,
     velY: -Math.random() * 1.5 - 0.5,
   };
@@ -29,26 +29,27 @@ const createParticle = (
 
 export const ParticlesBg = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const numParticles = 200;
   const particles = useRef<Particle[]>([]);
   const prevWidth = useRef<number | null>(null);
 
   const resizeCanvas = () => {
     const canvas = canvasRef.current;
     if (canvas) {
-      canvas.width =
+      const width =
         document.body.clientWidth > 1000
           ? document.body.clientWidth
           : window.innerWidth;
-      canvas.height =
+      const height =
         document.body.clientWidth > 1000
           ? document.body.clientHeight
           : window.innerHeight;
 
-      const { width, height } = canvas;
-      particles.current = Array.from(
-        { length: canvas.width > 1000 ? numParticles : 10 },
-        () => createParticle(width, height)
+      canvas.width = width;
+      canvas.height = height;
+
+      const numParticles = width > 1000 ? 200 : 10;
+      particles.current = Array.from({ length: numParticles }, () =>
+        createParticle(width, height)
       );
     }
   };
@@ -110,7 +111,7 @@ export const ParticlesBg = () => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, [numParticles]);
+  }, []);
 
   useEffect(() => {
     prevWidth.current = window.innerWidth;
