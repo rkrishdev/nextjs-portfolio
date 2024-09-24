@@ -21,7 +21,7 @@ const createParticle = (
     size:
       canvasWidth > 1000
         ? Math.random() * 1 + 0.25
-        : Math.random() * 1.25 + 0.5,
+        : Math.random() * 1 + 0.5,
     velX: Math.random() * 2 + 1,
     velY: -Math.random() * 1.5 - 0.5,
   };
@@ -35,8 +35,14 @@ export const ParticlesBg = () => {
   const resizeCanvas = () => {
     const canvas = canvasRef.current;
     if (canvas) {
-      canvas.width = document.body.clientWidth;
-      canvas.height = document.body.clientHeight;
+      canvas.width =
+        document.body.clientWidth > 1000
+          ? document.body.clientWidth
+          : window.innerWidth;
+      canvas.height =
+        document.body.clientWidth > 1000
+          ? document.body.clientHeight
+          : window.innerHeight;
 
       const { width, height } = canvas;
       particles.current = Array.from(
