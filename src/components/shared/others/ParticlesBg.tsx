@@ -103,7 +103,7 @@ export const ParticlesBg = () => {
       const newWidth = window.innerWidth;
       const newHeight = window.innerHeight;
 
-      if (prevWidth.current !== newWidth || prevHeight.current !== newHeight) {
+      if (prevWidth.current !== newWidth) {
         prevWidth.current = newWidth;
         prevHeight.current = newHeight;
 
