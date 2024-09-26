@@ -76,6 +76,7 @@ export const Gradient = ({
           height={0}
           sizes="100%"
           alt="landing gradient"
+          quality={100}
           className={heroStyles.gradientImage}
           priority
         />
