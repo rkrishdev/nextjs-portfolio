@@ -7,8 +7,8 @@ import { usePreloader } from "@/context/PreloaderContext";
 
 const MAX_PARTICLES_LARGE = 175;
 const MAX_PARTICLES_SMALL = 15;
-const SIZE_LARGE_MIN = 0.2;
-const SIZE_LARGE_MAX = 0.95;
+const SIZE_LARGE_MIN = 0.25;
+const SIZE_LARGE_MAX = 1.1;
 const SIZE_SMALL_MIN = 0.2;
 const SIZE_SMALL_MAX = 1;
 
@@ -78,7 +78,7 @@ export const ParticlesBg = () => {
     const { width, height } = canvas;
     context.clearRect(0, 0, width, height);
 
-    particles.current.forEach((particle, index) => {
+    particles.current.forEach((particle) => {
       particle.x += particle.velX;
       particle.y += particle.velY;
 
