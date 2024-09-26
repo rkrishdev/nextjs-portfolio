@@ -125,6 +125,7 @@ export const List = () => {
                 " "
               )}
               key={button}
+              aria-label={button}
             >
               {button}
             </div>

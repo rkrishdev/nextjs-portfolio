@@ -49,6 +49,7 @@ export const NavbarLinks = ({ currentSection }: { currentSection: string }) => {
               currentSection === elementId ? navbarStyles.active : "",
             ].join(" ")}
             onClick={onClick}
+            aria-label={`Go to ${label} section`}
           >
             {label}
           </button>

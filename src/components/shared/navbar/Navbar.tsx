@@ -85,6 +85,7 @@ export const Navbar = () => {
           <button
             onClick={() => handleScroll("home")}
             className={navbarStyles.logoButton}
+            aria-label="Go to hero section"
           >
             <Logo />
           </button>

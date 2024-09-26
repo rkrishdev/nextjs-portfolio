@@ -21,14 +21,14 @@ export const Footer = () => {
         <p
           className={[defaultStyles.textNormal, montserrat.className].join(" ")}
         >
-          2024 Edition.
-          Designed and developed by Rakshankrishnan S.
+          2024 Edition. Designed and developed by Rakshankrishnan S.
         </p>
       </div>
       <button
         type="button"
         className={footerStyles.col2}
         onClick={() => handleScroll("home")}
+        aria-label="Go to hero section"
       >
         <Image
           src={"/assets/imgs/others/arrow.svg"}

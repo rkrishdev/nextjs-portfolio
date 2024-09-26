@@ -132,6 +132,7 @@ export const NavbarLinksMobile = ({
                 ].join(" ")}
                 onClick={onClick}
                 {...itemAnimation(delay)}
+                aria-label={`Go to ${label} section`}
               >
                 {label}
               </motion.button>

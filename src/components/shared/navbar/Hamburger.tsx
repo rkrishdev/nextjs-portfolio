@@ -13,6 +13,8 @@ export const Hamburger = ({
       type="button"
       className={navbarStyles.hamburger}
       onClick={(e) => setIsMenuOpen(!isMenuOpen)}
+      aria-label="Toggle navbar menu"
+      aria-expanded={isMenuOpen}
     >
       <motion.span
         animate={isMenuOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
