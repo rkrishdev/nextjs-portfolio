@@ -10,7 +10,7 @@ const MAX_PARTICLES_SMALL = 15;
 const SIZE_LARGE_MIN = 0.25;
 const SIZE_LARGE_MAX = 1;
 const SIZE_SMALL_MIN = 0.2;
-const SIZE_SMALL_MAX = 1;
+const SIZE_SMALL_MAX = 0.75;
 
 interface Particle {
   x: number;
