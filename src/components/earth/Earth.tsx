@@ -3,13 +3,14 @@ import { useMotionValueEvent, useScroll } from "framer-motion";
 import { useRef, useState, useMemo, useCallback } from "react";
 import { TextureLoader } from "three/src/loaders/TextureLoader.js";
 import { motion } from "framer-motion-3d";
+import earthStyles from "@/styles/earth.module.css";
 
 export default function Earth() {
   const [earthRotationValue, setEarthRotationValue] = useState<number>(0);
   const [cloudRotationValue, setCloudRotationValue] = useState<number>(0);
   const [scaleValue, setScaleValue] = useState<number>(2.85);
-  const scene = useRef<HTMLCanvasElement | null>(null);
-  let scaleAdder = 2.75;
+  const scene = useRef<HTMLDivElement | null>(null);
+  let scaleAdder = 2.6;
 
   const { scrollYProgress } = useScroll({
     target: scene,
@@ -37,8 +38,8 @@ export default function Earth() {
     TextureLoader,
     useMemo(
       () => [
-        "/assets/imgs/3d/1659628176600.jpg",
-        "/assets/imgs/3d/normal.png",
+        "/assets/imgs/3d/Earth-texture.jpeg",
+        "/assets/imgs/3d/normal.webp",
         "/assets/imgs/3d/occlusion.jpg",
         "/assets/imgs/3d/Earth-clouds.png",
       ],
@@ -47,29 +48,31 @@ export default function Earth() {
   );
 
   return (
-    <Canvas ref={scene}>
-      <ambientLight intensity={0.1} />
-      <directionalLight
-        intensity={2}
-        position={[1, 0, 1.15]}
-        color={"#f5f5f5"}
-      />
-      <motion.mesh
-        scale={scaleValue}
-        rotation-y={earthRotationValue}
-        rotation-x={0.375}
-      >
-        <sphereGeometry args={[1, 64, 64]} />
-        <meshStandardMaterial map={color} normalMap={normal} aoMap={aoMap} />
-      </motion.mesh>
-      <motion.mesh
-        scale={scaleValue + 0.025}
-        rotation-y={cloudRotationValue}
-        rotation-x={0.375}
-      >
-        <sphereGeometry args={[1, 64, 64]} />
-        <meshStandardMaterial map={cloudMap} transparent opacity={0.6} />
-      </motion.mesh>
-    </Canvas>
+    <div ref={scene} className={earthStyles.canvasContainer}>
+      <Canvas>
+        <ambientLight intensity={0.2} />
+        <directionalLight
+          intensity={2.15}
+          position={[1, 0, 1.15]}
+          color={"#f5f5f5"}
+        />
+        <motion.mesh
+          scale={scaleValue}
+          rotation-y={earthRotationValue}
+          rotation-x={0.375}
+        >
+          <sphereGeometry args={[1, 64, 64]} />
+          <meshStandardMaterial map={color} normalMap={normal} aoMap={aoMap} />
+        </motion.mesh>
+        <motion.mesh
+          scale={scaleValue + 0.025}
+          rotation-y={cloudRotationValue}
+          rotation-x={0.375}
+        >
+          <sphereGeometry args={[1, 64, 64]} />
+          <meshStandardMaterial map={cloudMap} transparent opacity={0.6} />
+        </motion.mesh>
+      </Canvas>
+    </div>
   );
 }

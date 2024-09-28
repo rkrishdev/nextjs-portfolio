@@ -25,37 +25,28 @@
 @media screen and (max-width: 1000px) {
   .imageContainer {
     width: 100%;
-    max-width: 425px;
+    max-width: 100%;
     order: 2;
     margin: 0 auto;
   }
+}
 
+@media screen and (max-width: 769px) {
   .profileImage {
     height: 90vw;
-  }
-}
-
-@media screen and (max-width: 1000px) {
-  .imageContainer {
-    max-width: 100%;
-  }
-}
-
-@media screen and (min-width: 550px) and (max-width: 1000px) {
-  .profileImage {
     object-position: center 10%;
-  }
-}
-
-@media screen and (min-width: 768px) and (max-width: 1000px) {
-  .profileImage {
-    height: 80vw;
   }
 }
 
 @media screen and (min-width: 600px) and (max-width: 769px) {
   .profileImage {
     height: 75vw;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1000px) {
+  .profileImage {
+    height: 80vw;
   }
 }
 

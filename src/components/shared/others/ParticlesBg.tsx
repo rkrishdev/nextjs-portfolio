@@ -8,9 +8,9 @@ import { usePreloader } from "@/context/PreloaderContext";
 const MAX_PARTICLES_LARGE = 175;
 const MAX_PARTICLES_SMALL = 15;
 const SIZE_LARGE_MIN = 0.25;
-const SIZE_LARGE_MAX = 1;
+const SIZE_LARGE_MAX = 1.1;
 const SIZE_SMALL_MIN = 0.2;
-const SIZE_SMALL_MAX = 0.75;
+const SIZE_SMALL_MAX = 0.85;
 
 interface Particle {
   x: number;
@@ -43,7 +43,7 @@ export const ParticlesBg = () => {
   const particles = useRef<Particle[]>([]);
   const prevWidth = useRef<number | null>(null);
   const animationFrameId = useRef<number | null>(null);
-  const { loading } = usePreloader();
+  const { initParticles } = usePreloader();
 
   const resizeCanvas = () => {
     const canvas = canvasRef.current;
@@ -124,7 +124,8 @@ export const ParticlesBg = () => {
   }, [render]);
 
   useEffect(() => {
-    if (!loading) {
+    if (initParticles) {
+      resizeCanvas();
       render();
     }
     return () => {
@@ -132,7 +133,7 @@ export const ParticlesBg = () => {
         cancelAnimationFrame(animationFrameId.current);
       }
     };
-  }, [render, loading]);
+  }, [render, initParticles]);
 
   return (
     <div className={particleStyles.canvasWrapper}>

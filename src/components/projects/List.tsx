@@ -8,6 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "react-responsive";
+import { usePreloader } from "@/context/PreloaderContext";
 
 const projectData = [
   {
@@ -45,6 +46,8 @@ const projectData = [
 ];
 
 export const List = () => {
+  const { setImagesLoaded } = usePreloader();
+
   const [col1TransformValue, setCol1TransformValue] = useState<string[]>([
     "0vw",
     "7vw",
@@ -87,13 +90,15 @@ export const List = () => {
     <div className={projectStyles.listItem} key={project.title}>
       <Link href={project.link} target="_blank">
         <Image
-          className={projectStyles.listImage}
+          className={[projectStyles.listImage, "checkForload"].join(" ")}
           src={project.imageSrc}
           width={0}
           height={0}
           sizes="100vw"
           alt={project.title}
           loading="eager"
+          onLoad={() => setImagesLoaded((s) => s + 1)}
+          priority
         />
       </Link>
       <div className={projectStyles.itemContent}>

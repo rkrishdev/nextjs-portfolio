@@ -9,6 +9,8 @@ interface PreloaderContextType {
   progress: number;
   setProgress: React.Dispatch<React.SetStateAction<number>>;
   initParticles: boolean;
+  imagesLoaded: number;
+  setImagesLoaded: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const PreloaderContext = createContext<PreloaderContextType | undefined>(
@@ -22,6 +24,9 @@ export const PreloaderProvider = ({
 }) => {
   const [loading, setLoading] = useState<boolean>(true);
   const [progress, setProgress] = useState<number>(0);
+  const [checkForImageLoad, setCheckForImageLoad] = useState<boolean>(false);
+  const [totalImages, setTotalImages] = useState<number>(0);
+  const [imagesLoaded, setImagesLoaded] = useState<number>(0);
   const [initParticles, setInitParticles] = useState<boolean>(false);
 
   useEffect(() => {
@@ -34,31 +39,58 @@ export const PreloaderProvider = ({
     };
 
     manager.onLoad = () => {
-      setTimeout(() => {
-        setInitParticles(true);
-      }, 1000);      
-      setTimeout(() => {
-        setLoading(false);
-      }, 1500);
+      setCheckForImageLoad(true);
     };
 
     manager.onProgress = (url, itemsLoaded, itemsTotal) => {
-      setProgress((itemsLoaded / itemsTotal) * 100);
+      setProgress(() =>
+        Math.round(Math.min(50, (itemsLoaded / itemsTotal) * 50))
+      );
     };
 
     manager.onError = (url) => {
       console.error(`There was an error loading ${url}`);
     };
 
-    loader.load("/assets/imgs/3d/1659628176600.jpg");
-    loader.load("/assets/imgs/3d/normal.png");
+    loader.load("/assets/imgs/3d/Earth-texture.jpeg");
+    loader.load("/assets/imgs/3d/normal.webp");
     loader.load("/assets/imgs/3d/occlusion.jpg");
     loader.load("/assets/imgs/3d/Earth-clouds.png");
   }, []);
 
+  useEffect(() => {
+    if (checkForImageLoad) {
+      const total: number =
+        document.querySelectorAll(".checkForload")?.length || 0;
+      setTotalImages(total);
+    }
+  }, [checkForImageLoad]);
+
+  useEffect(() => {
+    if (imagesLoaded && totalImages) {
+      setProgress((prevProgress) => {
+        const newProgress = prevProgress + (imagesLoaded / totalImages) * 50;
+        return Math.round(Math.min(newProgress, 100));
+      });
+
+      if (imagesLoaded === totalImages) {
+        setTimeout(() => setInitParticles(true), 1000);
+        setTimeout(() => setLoading(false), 1500);
+      }
+    }
+  }, [totalImages, imagesLoaded]);
+
   return (
     <PreloaderContext.Provider
-      value={{ loading, setLoading, progress, setProgress, initParticles }}
+      value={{
+        loading,
+        setLoading,
+        progress,
+        setProgress,
+        initParticles,
+        imagesLoaded,
+        setImagesLoaded,
+      }}
     >
       {children}
     </PreloaderContext.Provider>

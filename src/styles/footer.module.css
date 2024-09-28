@@ -56,6 +56,7 @@
   width: 2.25vw;
   height: auto;
   margin-bottom: 1vw;
+  transition: 0.1s linear;
 }
 
 @media screen and (max-width: 1000px) {
@@ -67,4 +68,8 @@
     width: 2rem;
     margin-bottom: 1rem;
   }
+}
+
+.col2:hover img {
+  transform: translateY(-7.5%);
 }
