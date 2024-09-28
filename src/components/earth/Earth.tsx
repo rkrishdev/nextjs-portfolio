@@ -50,7 +50,7 @@ export default function Earth() {
   return (
     <div ref={scene} className={earthStyles.canvasContainer}>
       <Canvas>
-        <ambientLight intensity={0.2} />
+        <ambientLight intensity={0.1} />
         <directionalLight
           intensity={2.15}
           position={[1, 0, 1.15]}
