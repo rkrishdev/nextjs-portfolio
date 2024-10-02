@@ -59,26 +59,19 @@ export const PreloaderProvider = ({
   }, []);
 
   useEffect(() => {
-    console.log("check for image load");
-    const loadHandler = () => {
-      if (checkForImageLoad) {
-        const total: number =
-          document.querySelectorAll(".checkForload")?.length || 0;
-        console.log(
-          "check for image load",
-          document.querySelectorAll(".checkForload")
-        );
+    if (checkForImageLoad) {
+      const loadHandler = () => {
+        const total = document.querySelectorAll(".checkForload").length || 0;
+        console.log("check for image load", total);
         setTotalImages(total);
-      }
-    };
-
-    if (document.readyState !== "complete") {
-      window.addEventListener("load", loadHandler);
-      return () => {
-        window.removeEventListener("load", loadHandler);
       };
-    } else {
-      loadHandler();
+
+      const observer = new MutationObserver(loadHandler);
+      observer.observe(document.body, { childList: true, subtree: true });
+
+      return () => {
+        observer.disconnect();
+      };
     }
   }, [checkForImageLoad]);
 
