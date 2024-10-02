@@ -43,6 +43,10 @@ export const Highlighted = () => {
               alt={alt}
               loading="eager"
               onLoad={() => setImagesLoaded((s) => s + 1)}
+              onError={(e) => {
+                console.error("Image failed to load", e);
+                setImagesLoaded((s) => s + 1);
+              }}
             />
             <h6 className={`${montserrat.className} ${defaultStyles.text2XL}`}>
               {name}

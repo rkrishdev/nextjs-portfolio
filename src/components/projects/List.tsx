@@ -105,6 +105,10 @@ export const List = () => {
           alt={project.title}
           loading="eager"
           onLoad={() => setImagesLoaded((s) => s + 1)}
+          onError={(e) => {
+            console.error("Image failed to load", e);
+            setImagesLoaded((s) => s + 1);
+          }}
           data-animation-description="Visit this website"
           onMouseEnter={(e) => cursorHandlers.manageMouseEnter(e)}
           onMouseOut={(e) => cursorHandlers.manageMouseOut(e)}
