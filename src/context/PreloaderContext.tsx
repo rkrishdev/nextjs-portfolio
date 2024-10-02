@@ -24,7 +24,7 @@ export const PreloaderProvider = ({
 }) => {
   const [loading, setLoading] = useState<boolean>(true);
   const [progress, setProgress] = useState<number>(0);
-  const [checkForImageLoad, setCheckForImageLoad] = useState<boolean>(false);
+  const [checkForImageLoad, setCheckForImageLoad] = useState<number>(0);
   const [totalImages, setTotalImages] = useState<number>(0);
   const [imagesLoaded, setImagesLoaded] = useState<number>(0);
   const [initParticles, setInitParticles] = useState<boolean>(false);
@@ -39,7 +39,7 @@ export const PreloaderProvider = ({
     };
 
     manager.onLoad = () => {
-      setCheckForImageLoad(true);
+      setCheckForImageLoad((s) => s + 1);
     };
 
     manager.onProgress = (url, itemsLoaded, itemsTotal) => {
