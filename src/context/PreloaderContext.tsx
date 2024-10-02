@@ -67,7 +67,8 @@ export const PreloaderProvider = ({
   }, [checkForImageLoad]);
 
   useEffect(() => {
-    console.log("check image load");
+    console.log("check image load - imagesLoaded: ", imagesLoaded);
+    console.log("check image load - totalImages: ", totalImages);
     if (imagesLoaded && totalImages) {
       setProgress((prevProgress) => {
         const newProgress = prevProgress + (imagesLoaded / totalImages) * 50;
