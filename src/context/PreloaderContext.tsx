@@ -60,15 +60,19 @@ export const PreloaderProvider = ({
 
   useEffect(() => {
     console.log("check for image load");
-    if (checkForImageLoad) {
+    window.onload = () => {
       const total: number =
         document.querySelectorAll(".checkForload")?.length || 0;
+      setTotalImages(total);
       console.log(
         "check for image load",
         document.querySelectorAll(".checkForload")
       );
-      setTotalImages(total);
-    }
+    };
+
+    return () => {
+      window.onload = null;
+    };
   }, [checkForImageLoad]);
 
   useEffect(() => {
