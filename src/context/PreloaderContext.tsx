@@ -24,7 +24,7 @@ export const PreloaderProvider = ({
 }) => {
   const [loading, setLoading] = useState<boolean>(true);
   const [progress, setProgress] = useState<number>(0);
-  const [checkForImageLoad, setCheckForImageLoad] = useState<number>(0);
+  const [checkForImageLoad, setCheckForImageLoad] = useState<boolean>(false);
   const [totalImages, setTotalImages] = useState<number>(0);
   const [imagesLoaded, setImagesLoaded] = useState<number>(0);
   const [initParticles, setInitParticles] = useState<boolean>(false);
@@ -39,7 +39,7 @@ export const PreloaderProvider = ({
     };
 
     manager.onLoad = () => {
-      setCheckForImageLoad((s) => s + 1);
+      setCheckForImageLoad(true);
     };
 
     manager.onProgress = (url, itemsLoaded, itemsTotal) => {
@@ -59,9 +59,14 @@ export const PreloaderProvider = ({
   }, []);
 
   useEffect(() => {
+    console.log("check for image load");
     if (checkForImageLoad) {
       const total: number =
         document.querySelectorAll(".checkForload")?.length || 0;
+      console.log(
+        "check for image load",
+        document.querySelectorAll(".checkForload")
+      );
       setTotalImages(total);
     }
   }, [checkForImageLoad]);
