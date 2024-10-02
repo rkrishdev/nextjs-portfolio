@@ -39,6 +39,7 @@ export const PreloaderProvider = ({
     };
 
     manager.onLoad = () => {
+      console.log("textures loaded");
       setCheckForImageLoad(true);
     };
 
