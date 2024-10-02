@@ -1,7 +1,7 @@
 "use client";
 
 import defaultStyles from "@/styles/default.module.css";
-import projectStyles from "@/styles/project.module.css";
+import projectStyles from "@/styles/projects.module.css";
 import { medium, montserrat } from "@/styles/fonts/fonts";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
@@ -9,6 +9,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import { usePreloader } from "@/context/PreloaderContext";
+import { useCursor } from "@/context/CursorContext";
 
 const projectData = [
   {
@@ -46,6 +47,7 @@ const projectData = [
 ];
 
 export const List = () => {
+  const { cursorHandlers } = useCursor();
   const { setImagesLoaded } = usePreloader();
 
   const [col1TransformValue, setCol1TransformValue] = useState<string[]>([
@@ -90,7 +92,12 @@ export const List = () => {
     <div className={projectStyles.listItem} key={project.title}>
       <Link href={project.link} target="_blank">
         <Image
-          className={[projectStyles.listImage, "checkForload"].join(" ")}
+          className={[
+            projectStyles.listImage,
+            "checkForload",
+            "cursorAnimationTrigger",
+            "animation:show-description",
+          ].join(" ")}
           src={project.imageSrc}
           width={0}
           height={0}
@@ -98,6 +105,9 @@ export const List = () => {
           alt={project.title}
           loading="eager"
           onLoad={() => setImagesLoaded((s) => s + 1)}
+          data-animation-description="Visit this website"
+          onMouseEnter={(e) => cursorHandlers.manageMouseEnter(e)}
+          onMouseOut={(e) => cursorHandlers.manageMouseOut(e)}
           priority
         />
       </Link>
@@ -138,7 +148,14 @@ export const List = () => {
           <Link
             href={project.link}
             target="_blank"
-            className={projectStyles.linkIcon}
+            className={[
+              projectStyles.linkIcon,
+              "cursorAnimationTrigger",
+              "animation:show-description",
+            ].join(" ")}
+            data-animation-description="Visit this website"
+            onMouseEnter={(e) => cursorHandlers.manageMouseEnter(e)}
+            onMouseOut={(e) => cursorHandlers.manageMouseOut(e)}
           >
             <Image
               src={"/assets/imgs/icons/link.svg"}
@@ -146,6 +163,7 @@ export const List = () => {
               height={0}
               sizes="100vw"
               alt="link"
+              style={{ pointerEvents: "none" }}
             />
           </Link>
         </div>

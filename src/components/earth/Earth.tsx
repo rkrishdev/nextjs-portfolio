@@ -53,7 +53,7 @@ export default function Earth() {
         <ambientLight intensity={0.1} />
         <directionalLight
           intensity={2.15}
-          position={[1, 0, 1.15]}
+          position={[1.15,0, 1]}
           color={"#f5f5f5"}
         />
         <motion.mesh

@@ -8,11 +8,14 @@ import { Footer } from "@/components/shared/footer/Footer";
 import { LargeGradientBg } from "@/components/shared/others/LargeGradientBg";
 import { Preloader } from "@/components/shared/others/Preloader";
 import { ParticlesBg } from "@/components/shared/others/ParticlesBg";
+import { CursorFollower } from "@/components/shared/others/CursorFollower";
+import { CursorProvider } from "@/context/CursorContext";
 
 export default function Home() {
   return (
     <>
       <Preloader />
+      <CursorFollower />
       <div style={{ overflowX: "hidden" }}>
         <MainContent />
         <About />

@@ -5,9 +5,11 @@ import defaultStyles from "@/styles/default.module.css";
 import navbarStyles from "@/styles/navbar.module.css";
 import { montserrat } from "@/styles/fonts/fonts";
 import Link from "next/link";
+import { useCursor } from "@/context/CursorContext";
 
 export const NavbarLinks = ({ currentSection }: { currentSection: string }) => {
   const { handleScroll } = useScrollTo();
+  const { cursorHandlers } = useCursor();
 
   const navItemClassName = [
     defaultStyles.textSmall,
@@ -61,7 +63,14 @@ export const NavbarLinks = ({ currentSection }: { currentSection: string }) => {
           href={
             "https://drive.google.com/file/d/1D5EHgki6xmE53fYcXiz7DEaaZoSlYoYS/view?usp=sharing"
           }
-          className={navItemClassName}
+          className={[
+            navItemClassName,
+            "cursorAnimationTrigger",
+            "animation:show-description",
+          ].join(" ")}
+          data-animation-description="new-tab-icon"
+          onMouseEnter={(e) => cursorHandlers.manageMouseEnter(e)}
+          onMouseOut={(e) => cursorHandlers.manageMouseOut(e)}
         >
           Resume
         </Link>

@@ -204,6 +204,7 @@
   width: 1.1vw;
   height: 1.1vw;
   object-fit: contain;
+  pointer-events: none;
 }
 
 @media screen and (max-width: 1000px) {

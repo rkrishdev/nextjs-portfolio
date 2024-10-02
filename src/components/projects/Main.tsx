@@ -3,7 +3,7 @@
 import defaultStyles from "@/styles/default.module.css";
 import { medium, montserrat } from "@/styles/fonts/fonts";
 import { List } from "./List";
-import projectStyles from "@/styles/project.module.css";
+import projectStyles from "@/styles/projects.module.css";
 import { useRevealInView } from "@/hooks/useRevealInView";
 
 export const Projects = () => {

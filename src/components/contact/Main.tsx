@@ -6,8 +6,10 @@ import defaultStyles from "@/styles/default.module.css";
 import contactStyles from "@/styles/contact.module.css";
 import Link from "next/link";
 import { useRevealInView } from "@/hooks/useRevealInView";
+import { useCursor } from "@/context/CursorContext";
 
 export const Main = () => {
+  const { cursorHandlers } = useCursor();
   const { ref, className } = useRevealInView(
     defaultStyles.textRevealInitial,
     defaultStyles.textRevealAnimation
@@ -60,7 +62,12 @@ export const Main = () => {
               defaultStyles.textNormal,
               montserrat.className,
               defaultStyles.defaultButtonHover,
+              "cursorAnimationTrigger",
+              "animation:show-description",
             ].join(" ")}
+            data-animation-description="Click to mail me!"
+            onMouseEnter={(e) => cursorHandlers.manageMouseEnter(e)}
+            onMouseOut={(e) => cursorHandlers.manageMouseOut(e)}
           >
             <span></span>
             <span></span>
@@ -79,7 +86,12 @@ export const Main = () => {
               className={[
                 contactStyles.socialLink,
                 defaultStyles.defaultButtonHover,
+                "cursorAnimationTrigger",
+                "animation:show-description",
               ].join(" ")}
+              data-animation-description="new-tab-icon"
+              onMouseEnter={(e) => cursorHandlers.manageMouseEnter(e)}
+              onMouseOut={(e) => cursorHandlers.manageMouseOut(e)}
             >
               <Image
                 src={"/assets/imgs/icons/linkedin.svg"}
@@ -96,7 +108,12 @@ export const Main = () => {
               className={[
                 contactStyles.socialLink,
                 defaultStyles.defaultButtonHover,
+                "cursorAnimationTrigger",
+                "animation:show-description",
               ].join(" ")}
+              data-animation-description="new-tab-icon"
+              onMouseEnter={(e) => cursorHandlers.manageMouseEnter(e)}
+              onMouseOut={(e) => cursorHandlers.manageMouseOut(e)}
             >
               <Image
                 src={"/assets/imgs/icons/github.svg"}

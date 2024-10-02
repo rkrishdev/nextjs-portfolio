@@ -39,8 +39,15 @@
   width: 100%;
   height: auto;
   object-fit: contain;
-  filter: brightness(92.5%);
+  filter: brightness(90%);
   margin-bottom: 1.5vw;
+  transition: 0.15s linear;
+}
+
+@media screen and (min-width: 1000px) {
+  .listImage:hover {
+    opacity: 0.65;
+  }
 }
 
 @media screen and (max-width: 1000px) {

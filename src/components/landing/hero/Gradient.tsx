@@ -10,6 +10,7 @@ import {
 } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { useCursor } from "@/context/CursorContext";
 
 export const Gradient = ({
   loading,
@@ -18,6 +19,7 @@ export const Gradient = ({
   loading: boolean;
   textControls: AnimationControls;
 }) => {
+  const { cursorHandlers } = useCursor();
   const { scrollYProgress } = useScroll();
   const [revealComplete, setRevealComplete] = useState(false);
 
@@ -63,11 +65,18 @@ export const Gradient = ({
             height={0}
             sizes="100vw"
             alt="landing bg"
-            className={heroStyles.bgImage}
+            className={[
+              heroStyles.bgImage,
+              "cursorAnimationTrigger",
+              "animation:show-description",
+            ].join(" ")}
             style={{
               scale: revealComplete ? scrollScale : scale,
               display: "block",
             }}
+            data-animation-description="It's all about the journey!"
+            onMouseEnter={(e) => cursorHandlers.manageMouseEnter(e)}
+            onMouseOut={(e) => cursorHandlers.manageMouseOut(e)}
           />
         </div>
         <Image

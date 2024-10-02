@@ -1,0 +1,25 @@
+.cursorFollower {
+  position: fixed;
+  z-index: 99999;
+  background-color: var(--button-bg-white);
+  border-radius: 50%;
+  pointer-events: none;
+  transition: 0.15s linear;
+  font-size: 0.9vw;
+  padding: 0.25vw 0.5vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cursorFollower .textContainer {
+  opacity: 0;
+  text-wrap: nowrap;
+  color: var(--white);
+}
+
+@media screen and (max-width: 1000px) {
+  .cursorFollower {
+    display: none;
+  }
+}
