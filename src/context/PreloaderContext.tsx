@@ -60,19 +60,26 @@ export const PreloaderProvider = ({
 
   useEffect(() => {
     console.log("check for image load");
-    window.onload = () => {
-      const total: number =
-        document.querySelectorAll(".checkForload")?.length || 0;
-      setTotalImages(total);
-      console.log(
-        "check for image load",
-        document.querySelectorAll(".checkForload")
-      );
+    const loadHandler = () => {
+      if (checkForImageLoad) {
+        const total: number =
+          document.querySelectorAll(".checkForload")?.length || 0;
+        console.log(
+          "check for image load",
+          document.querySelectorAll(".checkForload")
+        );
+        setTotalImages(total);
+      }
     };
 
-    return () => {
-      window.onload = null;
-    };
+    if (document.readyState !== "complete") {
+      window.addEventListener("load", loadHandler);
+      return () => {
+        window.removeEventListener("load", loadHandler);
+      };
+    } else {
+      loadHandler();
+    }
   }, [checkForImageLoad]);
 
   useEffect(() => {
