@@ -36,6 +36,7 @@ export const PreloaderProvider = ({
   const [progress, setProgress] = useState<number>(0);
   const [checkForEarthLoad, setCheckForEarthLoad] = useState<boolean>(false);
   const [earthLoaded, setEarthLoaded] = useState<boolean>(false);
+  const [imagesLoaded, setImagesLoaded] = useState<number>(0);
   const [totalImages, setTotalImages] = useState<ImageType[]>([]);
   const [initParticles, setInitParticles] = useState<boolean>(false);
   const [resizeParticles, setResizeParticles] = useState<number>(0);
@@ -47,9 +48,7 @@ export const PreloaderProvider = ({
       imgs?.forEach((i) => {
         const img = i as HTMLImageElement;
         const src = img.getAttribute("data-src");
-        const isNew = imgSrc.filter((ic) => {
-          if (ic.src === src) return;
-        });
+        const isNew = imgSrc.find((ic) => ic.src === src) === undefined;
         if (img.src && isNew && src) {
           imgSrc.push({
             src: src,
@@ -72,20 +71,20 @@ export const PreloaderProvider = ({
 
   useEffect(() => {
     if (totalImages.length > 0) {
-      let imagesLoaded: number = 0;
-      totalImages.map((i) => (i.loaded ? imagesLoaded++ : ""));
+      let imagesLoadedCount: number = 0;
+      totalImages.map((i) => (i.loaded ? imagesLoadedCount++ : ""));
+      setImagesLoaded(imagesLoadedCount);
+      if (imagesLoaded >= totalImages.length) {
+        setCheckForEarthLoad(true);
+      }
 
       setProgress((prevProgress) => {
         const newProgress =
           prevProgress + (imagesLoaded / totalImages.length) * 75;
         return Math.round(Math.min(newProgress, 100));
       });
-
-      if (imagesLoaded === totalImages.length) {
-        setCheckForEarthLoad(true);
-      }
     }
-  }, [totalImages]);
+  }, [imagesLoaded, totalImages]);
 
   useEffect(() => {
     if (checkForEarthLoad) {
@@ -94,6 +93,24 @@ export const PreloaderProvider = ({
       setTimeout(() => setLoading(false), 1500);
     }
   }, [checkForEarthLoad]);
+
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (
+        document.visibilityState === "visible" &&
+        totalImages.length >= imagesLoaded &&
+        !checkForEarthLoad
+      ) {
+        setCheckForEarthLoad(true);
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, [totalImages, imagesLoaded, checkForEarthLoad]);
 
   return (
     <PreloaderContext.Provider
