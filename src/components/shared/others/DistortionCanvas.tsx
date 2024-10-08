@@ -28,16 +28,7 @@ export const DistortionCanvas = ({
   const imageRef = useRef<HTMLImageElement>(null);
   const [renderCanvas, setRenderCanvas] = useState<boolean>(false);
   const [windowWidth, setWindowWidth] = useState<number>(0);
-  const { setImagesLoaded, setResizeParticles } = usePreloader();
-
-  const handleOnLoad = useMemo(
-    () =>
-      debounce(() => {
-        setImagesLoaded((s) => s + 1);
-        if (windowWidth > 1000) setRenderCanvas(true);
-      }, 100),
-    [setImagesLoaded, windowWidth]
-  );
+  const { totalImages, setResizeParticles } = usePreloader();
 
   useEffect(() => {
     setWindowWidth(window.innerWidth);
@@ -60,10 +51,24 @@ export const DistortionCanvas = ({
   }, [setResizeParticles]);
 
   useEffect(() => {
-    if (imageRef.current && imageRef.current.complete) {
-      handleOnLoad();
+    if (imageRef.current) {
+      if (windowWidth > 1000) setRenderCanvas(true);
     }
-  }, [imageRef, handleOnLoad]);
+  }, [windowWidth, imageRef]);
+
+  useEffect(() => {
+    if (
+      imageRef.current &&
+      imageRef.current.complete &&
+      totalImages.length > 0
+    ) {
+      totalImages.filter((i) => {
+        if (!i.loaded && i.src === imageRef.current?.getAttribute("data-src")) {
+          i.loaded = true;
+        }
+      });
+    }
+  }, [totalImages, imageRef]);
 
   return (
     <>
@@ -75,6 +80,7 @@ export const DistortionCanvas = ({
         ].join(" ")}
         ref={imageRef}
         src={imageSrc}
+        data-src={imageSrc}
         alt={altName}
         loading="eager"
       />

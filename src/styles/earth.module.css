@@ -1,6 +1,6 @@
 .container {
   background-color: transparent;
-  margin: 6vw auto 4vw auto;
+  margin: 4vw auto;
 }
 
 @media screen and (max-width: 1000px) {

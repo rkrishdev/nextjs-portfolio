@@ -5,6 +5,7 @@ import defaultStyles from "@/styles/default.module.css";
 import { montserrat } from "@/styles/fonts/fonts";
 import Image from "next/image";
 import { usePreloader } from "@/context/PreloaderContext";
+import { useEffect, useRef, useState } from "react";
 
 const techLogos = [
   { src: "/assets/imgs/logos/nextjs.webp", alt: "Next.js", name: "Next.js" },
@@ -19,16 +20,39 @@ const techLogos = [
 ];
 
 export const Highlighted = () => {
-  const { setImagesLoaded } = usePreloader();
+  const [imageLoadedCount, setImageLoadedCount] = useState(0);
+  const imageRefs = useRef<(HTMLImageElement | null)[]>([]);
+  const { totalImages } = usePreloader();
+
+  const handleOnLoad = () => {
+    setImageLoadedCount((prev) => prev + 1);
+  };
+
+  useEffect(() => {
+    if (imageLoadedCount === techLogos.length && totalImages.length > 0) {
+      techLogos.forEach(({ src }) => {
+        totalImages.filter((i) => {
+          if (!i.loaded && i.src === src) {
+            i.loaded = true;
+          }
+        });
+      });
+    }
+  }, [imageLoadedCount, totalImages]);
 
   return (
     <div className={skillsStyles.highlight}>
       <div
         className={[defaultStyles.containerSpace, skillsStyles.grid].join(" ")}
       >
-        {techLogos.map(({ src, alt, name }) => (
+        {techLogos.map(({ src, alt, name }, index) => (
           <div key={name} className={skillsStyles.gridItem}>
             <Image
+              ref={(el) => {
+                if (el) {
+                  imageRefs.current[index] = el;
+                }
+              }}
               className={[skillsStyles.gridItemLogo, "checkForload"].join(" ")}
               src={src}
               width={0}
@@ -36,11 +60,12 @@ export const Highlighted = () => {
               sizes="100vw"
               alt={alt}
               loading="eager"
-              onLoad={() => setImagesLoaded((s) => s + 1)}
+              onLoad={handleOnLoad}
               onError={(e) => {
                 console.error("Image failed to load", e);
-                setImagesLoaded((s) => s + 1);
+                handleOnLoad();
               }}
+              data-src={src}
             />
             <h6 className={`${montserrat.className} ${defaultStyles.text2XL}`}>
               {name}

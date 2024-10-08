@@ -2,6 +2,12 @@
 
 import { createContext, useContext, useEffect, useState } from "react";
 
+type ImageType = {
+  src: string;
+  image: HTMLImageElement;
+  loaded: boolean;
+};
+
 interface PreloaderContextType {
   loading: boolean;
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
@@ -9,8 +15,8 @@ interface PreloaderContextType {
   setProgress: React.Dispatch<React.SetStateAction<number>>;
   initParticles: boolean;
   setInitParticles: React.Dispatch<React.SetStateAction<boolean>>;
-  imagesLoaded: number;
-  setImagesLoaded: React.Dispatch<React.SetStateAction<number>>;
+  totalImages: ImageType[];
+  setTotalImages: React.Dispatch<React.SetStateAction<ImageType[]>>;
   earthLoaded: boolean;
   setEarthLoaded: React.Dispatch<React.SetStateAction<boolean>>;
   resizeParticles: number;
@@ -30,15 +36,30 @@ export const PreloaderProvider = ({
   const [progress, setProgress] = useState<number>(0);
   const [checkForEarthLoad, setCheckForEarthLoad] = useState<boolean>(false);
   const [earthLoaded, setEarthLoaded] = useState<boolean>(false);
-  const [totalImages, setTotalImages] = useState<number>(0);
-  const [imagesLoaded, setImagesLoaded] = useState<number>(0);
+  const [totalImages, setTotalImages] = useState<ImageType[]>([]);
   const [initParticles, setInitParticles] = useState<boolean>(false);
   const [resizeParticles, setResizeParticles] = useState<number>(0);
 
   useEffect(() => {
     const loadHandler = () => {
-      const total = document.querySelectorAll(".checkForload").length || 0;
-      setTotalImages(total);
+      const imgSrc: ImageType[] = [];
+      const imgs = document.querySelectorAll(".checkForload");
+      imgs?.forEach((i) => {
+        const img = i as HTMLImageElement;
+        const src = img.getAttribute("data-src");
+        const isNew = imgSrc.filter((ic) => {
+          if (ic.src === src) return;
+        });
+        if (img.src && isNew && src) {
+          imgSrc.push({
+            src: src,
+            image: img,
+            loaded: false,
+          });
+        }
+      });
+
+      setTotalImages(imgSrc);
     };
 
     const observer = new MutationObserver(loadHandler);
@@ -50,17 +71,21 @@ export const PreloaderProvider = ({
   }, []);
 
   useEffect(() => {
-    if (totalImages && imagesLoaded && imagesLoaded >= totalImages) {
+    if (totalImages.length > 0) {
+      let imagesLoaded: number = 0;
+      totalImages.map((i) => (i.loaded ? imagesLoaded++ : ""));
+
       setProgress((prevProgress) => {
-        const newProgress = prevProgress + (imagesLoaded / totalImages) * 75;
+        const newProgress =
+          prevProgress + (imagesLoaded / totalImages.length) * 75;
         return Math.round(Math.min(newProgress, 100));
       });
 
-      if (imagesLoaded === totalImages) {
+      if (imagesLoaded === totalImages.length) {
         setCheckForEarthLoad(true);
       }
     }
-  }, [totalImages, imagesLoaded]);
+  }, [totalImages]);
 
   useEffect(() => {
     if (checkForEarthLoad) {
@@ -79,8 +104,8 @@ export const PreloaderProvider = ({
         setProgress,
         initParticles,
         setInitParticles,
-        imagesLoaded,
-        setImagesLoaded,
+        totalImages,
+        setTotalImages,
         earthLoaded,
         setEarthLoaded,
         resizeParticles,
