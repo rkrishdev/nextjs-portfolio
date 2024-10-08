@@ -81,6 +81,10 @@ export const PreloaderProvider = ({
         return Math.round(Math.min(newProgress, 100));
       });
 
+      console.log("totalImages", totalImages);
+      console.log("totalImages length", totalImages.length);
+      console.log("imagesLoaded", imagesLoaded);
+
       if (imagesLoaded === totalImages.length) {
         setCheckForEarthLoad(true);
       }
