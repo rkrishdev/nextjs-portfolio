@@ -6,7 +6,10 @@ import { isMobile } from "react-device-detect";
 
 interface CursorContextType {
   cursorHandlers: {
-    manageMouseEnter: (event: React.MouseEvent<HTMLElement>) => void;
+    manageMouseEnter: (
+      event: React.MouseEvent<HTMLElement>,
+      canvas: HTMLCanvasElement | null
+    ) => void;
     manageMouseOut: (event: React.MouseEvent<HTMLElement>) => void;
   };
   cursorFollower: React.RefObject<HTMLDivElement>;

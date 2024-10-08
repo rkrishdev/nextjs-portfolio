@@ -34,7 +34,7 @@ export const Footer = () => {
           "animation:show-description",
         ].join(" ")}
         data-animation-description="Go to top"
-        onMouseEnter={(e) => cursorHandlers.manageMouseEnter(e)}
+        onMouseEnter={(e) => cursorHandlers.manageMouseEnter(e, null)}
         onMouseOut={(e) => cursorHandlers.manageMouseOut(e)}
         onClick={() => handleScroll("home")}
         aria-label="Go to hero section"
@@ -44,7 +44,7 @@ export const Footer = () => {
           width={0}
           height={0}
           sizes="100%"
-          alt="circle arrow"
+          alt="Circle with arrow"
           style={{ pointerEvents: "none" }}
         />
         <p

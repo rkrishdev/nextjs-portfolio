@@ -5,33 +5,20 @@ import { medium, montserrat } from "@/styles/fonts/fonts";
 import defaultStyles from "@/styles/default.module.css";
 import contactStyles from "@/styles/contact.module.css";
 import Link from "next/link";
-import { useRevealInView } from "@/hooks/useRevealInView";
 import { useCursor } from "@/context/CursorContext";
+import { DistortionCanvas } from "../shared/others/DistortionCanvas";
 
 export const Main = () => {
   const { cursorHandlers } = useCursor();
-  const { ref, className } = useRevealInView(
-    defaultStyles.textRevealInitial,
-    defaultStyles.textRevealAnimation
-  );
+
   return (
     <div className={contactStyles.mainContainer}>
-      <div>
-        <Image
-          src={"/assets/imgs/background/contact-computer.webp"}
-          width={0}
-          height={0}
-          sizes="100vw"
-          alt="landing bg"
-          className={contactStyles.computerImage}
-          priority
-          loading="eager"
-        />
-      </div>
-      <div
-        ref={ref}
-        className={[contactStyles.textContainer, className].join(" ")}
-      >
+      <DistortionCanvas
+        className={contactStyles.computerImage}
+        imageSrc={"/assets/imgs/background/contact-computer.webp"}
+        altName="Computer Background"
+      />
+      <div className={[contactStyles.textContainer].join(" ")}>
         <div className={contactStyles.textWrapper}>
           <h3
             className={[
@@ -66,7 +53,7 @@ export const Main = () => {
               "animation:show-description",
             ].join(" ")}
             data-animation-description="Click to mail me!"
-            onMouseEnter={(e) => cursorHandlers.manageMouseEnter(e)}
+            onMouseEnter={(e) => cursorHandlers.manageMouseEnter(e, null)}
             onMouseOut={(e) => cursorHandlers.manageMouseOut(e)}
           >
             <span></span>
@@ -90,7 +77,7 @@ export const Main = () => {
                 "animation:show-description",
               ].join(" ")}
               data-animation-description="new-tab-icon"
-              onMouseEnter={(e) => cursorHandlers.manageMouseEnter(e)}
+              onMouseEnter={(e) => cursorHandlers.manageMouseEnter(e, null)}
               onMouseOut={(e) => cursorHandlers.manageMouseOut(e)}
             >
               <Image
@@ -98,7 +85,7 @@ export const Main = () => {
                 width={0}
                 height={0}
                 sizes="100vw"
-                alt="linked in profile"
+                alt="Linkedin profile"
                 className={contactStyles.socialIcon}
               />
             </Link>
@@ -112,7 +99,7 @@ export const Main = () => {
                 "animation:show-description",
               ].join(" ")}
               data-animation-description="new-tab-icon"
-              onMouseEnter={(e) => cursorHandlers.manageMouseEnter(e)}
+              onMouseEnter={(e) => cursorHandlers.manageMouseEnter(e, null)}
               onMouseOut={(e) => cursorHandlers.manageMouseOut(e)}
             >
               <Image
@@ -120,7 +107,7 @@ export const Main = () => {
                 width={0}
                 height={0}
                 sizes="100vw"
-                alt="landing bg"
+                alt="Github profile"
                 className={contactStyles.socialIcon}
               />
             </Link>

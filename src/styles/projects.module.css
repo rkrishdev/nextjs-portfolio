@@ -36,8 +36,8 @@
 }
 
 .listImage {
-  width: 100%;
-  height: auto;
+  width: 36.5vw;
+  height: 20vw;
   object-fit: contain;
   filter: brightness(90%);
   margin-bottom: 1.5vw;
@@ -52,7 +52,9 @@
 
 @media screen and (max-width: 1000px) {
   .listImage {
+    width: 100%;
     margin-bottom: 1rem;
+    height: 100%;
   }
 }
 

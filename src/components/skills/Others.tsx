@@ -3,21 +3,13 @@
 import skillsStyles from "@/styles/skills.module.css";
 import defaultStyles from "@/styles/default.module.css";
 import { medium, montserrat } from "@/styles/fonts/fonts";
-import { useRevealInView } from "@/hooks/useRevealInView";
 
 export const Others = () => {
-  const { ref, className } = useRevealInView(
-    defaultStyles.textRevealInitial,
-    defaultStyles.textRevealAnimation
-  );
   return (
     <div
-      ref={ref}
-      className={[
-        defaultStyles.containerSpace,
-        skillsStyles.othersGrid,
-        className,
-      ].join(" ")}
+      className={[defaultStyles.containerSpace, skillsStyles.othersGrid].join(
+        " "
+      )}
     >
       <div className={skillsStyles.othersGridItem}>
         <h6

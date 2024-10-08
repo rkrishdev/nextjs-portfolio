@@ -65,7 +65,14 @@
   font-weight: 600;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 350px) {
+  .headingStandard {
+    font-size: 13px;
+    line-height: 2;
+  }
+}
+
+@media screen and (min-width: 351px) and (max-width: 600px) {
   .headingStandard {
     font-size: 14px;
     line-height: 2;
@@ -111,6 +118,18 @@
   font-size: 1.15vw;
 }
 
+@media screen and (max-width: 350px) {
+  .textExtraLarge {
+    font-size: 12px;
+  }
+}
+
+@media screen and (min-width: 351px) and (max-width: 1000px) {
+  .textExtraLarge {
+    font-size: 15px;
+  }
+}
+
 @media screen and (max-width: 1000px) {
   .textNormal {
     line-height: 24px;
@@ -120,10 +139,6 @@
   .textExtraLarge,
   .text2XL {
     line-height: 26px;
-  }
-
-  .textExtraLarge {
-    font-size: 15px;
   }
 }
 
@@ -141,7 +156,13 @@
   font-size: 1vw;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 350px) {
+  .textLarge {
+    font-size: 12px;
+  }
+}
+
+@media screen and (min-width: 351px) and (max-width: 1000px) {
   .textLarge {
     font-size: 14px;
   }
@@ -183,7 +204,13 @@
   color: var(--white);
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 350px) {
+  .textNormal {
+    font-size: 12px;
+  }
+}
+
+@media screen and (min-width: 351px) and (max-width: 1000px) {
   .textNormal {
     font-size: 14px;
   }

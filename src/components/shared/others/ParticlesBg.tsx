@@ -5,10 +5,10 @@ import particleStyles from "@/styles/particles-bg.module.css";
 import debounce from "lodash.debounce";
 import { usePreloader } from "@/context/PreloaderContext";
 
-const MAX_PARTICLES_LARGE = 175;
+const MAX_PARTICLES_LARGE = 100;
 const MAX_PARTICLES_SMALL = 15;
 const SIZE_LARGE_MIN = 0.25;
-const SIZE_LARGE_MAX = 1.1;
+const SIZE_LARGE_MAX = 0.9;
 const SIZE_SMALL_MIN = 0.2;
 const SIZE_SMALL_MAX = 0.85;
 
@@ -30,12 +30,9 @@ const createParticle = (
     canvasWidth > 1000
       ? Math.random() * (SIZE_LARGE_MAX - SIZE_LARGE_MIN) + SIZE_LARGE_MIN
       : Math.random() * (SIZE_SMALL_MAX - SIZE_SMALL_MIN) + SIZE_SMALL_MIN,
-  velX:
-    canvasWidth > 1000 ? Math.random() * 5 + 1.5 : Math.random() * 2.75 + 0.5,
+  velX: canvasWidth > 1000 ? Math.random() * 3 + 1 : Math.random() * 1.5 + 0.25,
   velY:
-    canvasWidth > 1000
-      ? -Math.random() * 2.5 - 0.75
-      : -Math.random() * 2 - 0.75,
+    canvasWidth > 1000 ? -Math.random() * 2 - 0.5 : -Math.random() * 1 - 0.15,
 });
 
 export const ParticlesBg = () => {
@@ -43,7 +40,7 @@ export const ParticlesBg = () => {
   const particles = useRef<Particle[]>([]);
   const prevWidth = useRef<number | null>(null);
   const animationFrameId = useRef<number | null>(null);
-  const { initParticles } = usePreloader();
+  const { initParticles, resizeParticles } = usePreloader();
 
   const resizeCanvas = () => {
     const canvas = canvasRef.current;
@@ -134,6 +131,12 @@ export const ParticlesBg = () => {
       }
     };
   }, [render, initParticles]);
+
+  useEffect(() => {
+    if (resizeParticles > 0) {
+      resizeCanvas();
+    }
+  }, [resizeParticles]);
 
   return (
     <div className={particleStyles.canvasWrapper}>

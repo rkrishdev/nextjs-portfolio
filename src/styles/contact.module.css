@@ -35,10 +35,7 @@
 
 .computerImage {
   width: 33vw;
-  height: 25vw;
-  object-fit: cover;
-  object-position: center 25%;
-  margin: 0 auto;
+  height: 30vw;
 }
 
 @media screen and (max-width: 600px) {

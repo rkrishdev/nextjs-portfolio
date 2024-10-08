@@ -4,17 +4,13 @@ import defaultStyles from "@/styles/default.module.css";
 import { medium, montserrat } from "@/styles/fonts/fonts";
 import earthStyles from "@/styles/earth.module.css";
 import dynamic from "next/dynamic";
-import { useRevealInView } from "@/hooks/useRevealInView";
+import aboutStyles from "@/styles/about.module.css";
 
 const Earth = dynamic(() => import("@/components/earth/Earth"), {
   ssr: false,
 });
 
 export const Quote = () => {
-  const { ref, className } = useRevealInView(
-    defaultStyles.textRevealInitial,
-    defaultStyles.textRevealAnimation
-  );
   return (
     <div
       className={[defaultStyles.containerSpace, earthStyles.container].join(
@@ -22,22 +18,19 @@ export const Quote = () => {
       )}
     >
       <div className={earthStyles.row}>
-        <div
-          ref={ref}
-          className={[earthStyles.quoteContainer, className].join(" ")}
-        >
-          <h4
-            className={[
-              medium.className,
-              earthStyles.largeHeading,
-              defaultStyles.headingSpace,
-              defaultStyles.letterSpacingDefault,
-            ].join(" ")}
-            style={{ textWrap: "nowrap" }}
-          >
-            Always learning <br />
-            and upskilling
-          </h4>
+        <div className={[earthStyles.quoteContainer].join(" ")}>
+          <div className={aboutStyles.quoteTitle}>
+            <h4
+              className={[
+                medium.className,
+                earthStyles.largeHeading,
+                defaultStyles.headingSpace,
+                defaultStyles.letterSpacingDefault,
+              ].join(" ")}
+            >
+              Always learning and upskilling
+            </h4>
+          </div>
           <p
             className={[
               montserrat.className,

@@ -18,7 +18,7 @@ export const CircleImage = ({ loading }: { loading: boolean }) => {
         width={0}
         height={0}
         sizes="100%"
-        alt="circle arrow"
+        alt="Circle with arrow"
         className={[heroStyles.circleImage, heroStyles.circleImageDesktop].join(
           " "
         )}
@@ -32,7 +32,7 @@ export const CircleImage = ({ loading }: { loading: boolean }) => {
           width={0}
           height={0}
           sizes="100%"
-          alt="circle arrow"
+          alt="Circle with arrow"
           className={[
             heroStyles.circleImage,
             heroStyles.circleImageMobile,

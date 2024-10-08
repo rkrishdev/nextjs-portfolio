@@ -30,7 +30,14 @@
   line-height: 3vw;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 350px) {
+  .largeHeading {
+    font-size: 12px;
+    line-height: 22px;
+  }
+}
+
+@media screen and (min-width: 351px) and (max-width: 1000px) {
   .largeHeading {
     font-size: 16px;
     line-height: 30px;
@@ -51,13 +58,13 @@
 
 @media screen and (max-width: 800px) {
   .canvasContainer {
-    height: 70vw;
+    height: 60vw;
   }
 }
 
 @media screen and (min-width: 801px) and (max-width: 1000px) {
   .canvasContainer {
-    height: 60vw;
+    height: 50vw;
   }
 }
 

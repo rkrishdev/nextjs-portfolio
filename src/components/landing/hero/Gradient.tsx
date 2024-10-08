@@ -3,14 +3,14 @@ import heroStyles from "@/styles/hero.module.css";
 import { montserrat } from "@/styles/fonts/fonts";
 import {
   motion,
+  AnimationControls,
   useScroll,
   useTransform,
   animate,
-  AnimationControls,
 } from "framer-motion";
 import Image from "next/image";
+import { DistortionCanvas } from "@/components/shared/others/DistortionCanvas";
 import { useEffect, useRef, useState } from "react";
-import { useCursor } from "@/context/CursorContext";
 
 export const Gradient = ({
   loading,
@@ -19,31 +19,34 @@ export const Gradient = ({
   loading: boolean;
   textControls: AnimationControls;
 }) => {
-  const { cursorHandlers } = useCursor();
   const { scrollYProgress } = useScroll();
   const [revealComplete, setRevealComplete] = useState(false);
 
-  const scrollScale = useTransform(scrollYProgress, [0, 1], [1, 1.6]);
+  const scrollScale = useTransform(scrollYProgress, [0, 1], [1, 1]);
 
-  const scaleRef = useRef(1.3);
-  const [scale, setScale] = useState(1.3);
+  const scaleRef = useRef(1);
+  const [scale, setScale] = useState(1);
 
   useEffect(() => {
     if (!loading) {
-      const controls = animate(scaleRef.current, 1, {
-        duration: 1,
-        delay: 0.5,
-        ease: "anticipate",
-        onUpdate: (latest) => {
-          setScale(latest);
-          scaleRef.current = latest;
-        },
-        onComplete: () => {
-          setRevealComplete(true);
-        },
-      });
+      setTimeout(() => {
+        scaleRef.current = 1.2;
+        setScale(1.2);
+        const controls = animate(scaleRef.current, 1, {
+          duration: 1,
+          delay: 0.5,
+          ease: "anticipate",
+          onUpdate: (latest) => {
+            setScale(latest);
+            scaleRef.current = latest;
+          },
+          onComplete: () => {
+            setRevealComplete(true);
+          },
+        });
 
-      return () => controls.stop();
+        return () => controls.stop();
+      }, 100);
     }
   }, [loading]);
 
@@ -55,36 +58,39 @@ export const Gradient = ({
           defaultStyles.containerSpace,
         ].join(" ")}
       >
-        <div
-          className={defaultStyles.textSpaceLarge}
-          style={{ overflow: "hidden" }}
-        >
-          <motion.img
-            src={"/assets/imgs/background/landing-bg.webp"}
-            width={0}
-            height={0}
-            sizes="100vw"
-            alt="landing bg"
+        <div className={[heroStyles.bgImageOverflow].join(" ")}>
+          <div
             className={[
-              heroStyles.bgImage,
-              "cursorAnimationTrigger",
-              "animation:show-description",
+              heroStyles.bgImageContainer,
+              revealComplete ? heroStyles.revealed : "",
             ].join(" ")}
-            style={{
-              scale: revealComplete ? scrollScale : scale,
-              display: "block",
-            }}
-            data-animation-description="It's all about the journey!"
-            onMouseEnter={(e) => cursorHandlers.manageMouseEnter(e)}
-            onMouseOut={(e) => cursorHandlers.manageMouseOut(e)}
-          />
+          >
+            <motion.div
+              style={{
+                scale: revealComplete ? scrollScale : scale,
+              }}
+              transition={{ duration: 0 }}
+            >
+              <DistortionCanvas
+                className={[heroStyles.bgImage].join(" ")}
+                canvasClass={[
+                  "cursorAnimationTrigger",
+                  "animation:show-description",
+                ].join(" ")}
+                altName="Landing Background"
+                enableHoverEvents={true}
+                imageSrc={"/assets/imgs/background/landing-bg.webp"}
+                dataAnimationDescription="It's all about the journey!"
+              />
+            </motion.div>
+          </div>
         </div>
         <Image
           src={"/assets/imgs/background/landing-gradient.webp"}
           width={0}
           height={0}
           sizes="100%"
-          alt="landing gradient"
+          alt="Landing gradient"
           quality={100}
           className={heroStyles.gradientImage}
           priority

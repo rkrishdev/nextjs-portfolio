@@ -3,16 +3,10 @@
 import defaultStyles from "@/styles/default.module.css";
 import aboutStyles from "@/styles/about.module.css";
 import { medium, montserrat } from "@/styles/fonts/fonts";
-import { useRevealInView } from "@/hooks/useRevealInView";
 
 const TextContent = () => {
-  const { ref, className } = useRevealInView(
-    defaultStyles.textRevealInitial,
-    defaultStyles.textRevealAnimation
-  );
-
   return (
-    <div ref={ref} className={[aboutStyles.textContent, className].join(" ")}>
+    <div className={[aboutStyles.textContent].join(" ")}>
       <div>
         <h3
           className={[

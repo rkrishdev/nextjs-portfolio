@@ -14,6 +14,7 @@
   --button-bg-white-hover: rgba(255, 255, 255, 0.065);
   --container-space: 5rem;
   --container-space-large: 10rem;
+  --cursor-bg: rgba(255, 255, 255, 0.1);
 }
 
 html,

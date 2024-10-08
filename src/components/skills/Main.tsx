@@ -1,6 +1,6 @@
 import skillsStyles from "@/styles/skills.module.css";
 import defaultStyles from "@/styles/default.module.css";
-import { medium, montserrat } from "@/styles/fonts/fonts";
+import { medium } from "@/styles/fonts/fonts";
 import Image from "next/image";
 import { Highlighted } from "./Highlighted";
 import { Others } from "./Others";
@@ -13,7 +13,7 @@ export const Skills = () => {
         width={0}
         height={0}
         sizes="100vw"
-        alt="gradient bg"
+        alt="Gradient Background"
         className={skillsStyles.bgImage}
         quality={100}
         priority

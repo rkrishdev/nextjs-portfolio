@@ -8,7 +8,7 @@ import { Hamburger } from "./Hamburger";
 import useScrollTo from "@/hooks/useScrollTo";
 import { useEffect, useRef, useState } from "react";
 import { NavbarLinksMobile } from "./NavbarLinksMobile";
-import { useInView } from "framer-motion";
+import { useInView, UseInViewOptions } from "framer-motion";
 
 export const Navbar = () => {
   const { handleScroll } = useScrollTo();
@@ -29,7 +29,7 @@ export const Navbar = () => {
     contactRef.current = document.getElementById("contact");
   }, []);
 
-  const inViewOptions = {
+  const inViewOptions: UseInViewOptions = {
     margin: "0px",
     amount: 0.4,
   };

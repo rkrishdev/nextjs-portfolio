@@ -1,7 +1,6 @@
 "use client";
 
 import { createContext, useContext, useEffect, useState } from "react";
-import { LoadingManager, TextureLoader } from "three";
 
 interface PreloaderContextType {
   loading: boolean;
@@ -9,8 +8,13 @@ interface PreloaderContextType {
   progress: number;
   setProgress: React.Dispatch<React.SetStateAction<number>>;
   initParticles: boolean;
+  setInitParticles: React.Dispatch<React.SetStateAction<boolean>>;
   imagesLoaded: number;
   setImagesLoaded: React.Dispatch<React.SetStateAction<number>>;
+  earthLoaded: boolean;
+  setEarthLoaded: React.Dispatch<React.SetStateAction<boolean>>;
+  resizeParticles: number;
+  setResizeParticles: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const PreloaderContext = createContext<PreloaderContextType | undefined>(
@@ -24,69 +28,47 @@ export const PreloaderProvider = ({
 }) => {
   const [loading, setLoading] = useState<boolean>(true);
   const [progress, setProgress] = useState<number>(0);
-  const [checkForImageLoad, setCheckForImageLoad] = useState<boolean>(false);
+  const [checkForEarthLoad, setCheckForEarthLoad] = useState<boolean>(false);
+  const [earthLoaded, setEarthLoaded] = useState<boolean>(false);
   const [totalImages, setTotalImages] = useState<number>(0);
   const [imagesLoaded, setImagesLoaded] = useState<number>(0);
   const [initParticles, setInitParticles] = useState<boolean>(false);
+  const [resizeParticles, setResizeParticles] = useState<number>(0);
 
   useEffect(() => {
-    const manager = new LoadingManager();
-    const loader = new TextureLoader(manager);
-
-    manager.onStart = () => {
-      setLoading(true);
-      setProgress(0);
+    const loadHandler = () => {
+      const total = document.querySelectorAll(".checkForload").length || 0;
+      setTotalImages(total);
     };
 
-    manager.onLoad = () => {
-      setCheckForImageLoad(true);
-    };
+    const observer = new MutationObserver(loadHandler);
+    observer.observe(document.body, { childList: true, subtree: true });
 
-    manager.onProgress = (url, itemsLoaded, itemsTotal) => {
-      setProgress(() =>
-        Math.round(Math.min(50, (itemsLoaded / itemsTotal) * 50))
-      );
+    return () => {
+      observer.disconnect();
     };
-
-    manager.onError = (url) => {
-      console.error(`There was an error loading ${url}`);
-    };
-
-    loader.load("/assets/imgs/3d/Earth-texture.jpeg");
-    loader.load("/assets/imgs/3d/normal.webp");
-    loader.load("/assets/imgs/3d/occlusion.jpg");
-    loader.load("/assets/imgs/3d/Earth-clouds.png");
   }, []);
 
   useEffect(() => {
-    if (checkForImageLoad) {
-      const loadHandler = () => {
-        const total = document.querySelectorAll(".checkForload").length || 0;
-        setTotalImages(total);
-      };
-
-      const observer = new MutationObserver(loadHandler);
-      observer.observe(document.body, { childList: true, subtree: true });
-
-      return () => {
-        observer.disconnect();
-      };
-    }
-  }, [checkForImageLoad]);
-
-  useEffect(() => {
-    if (imagesLoaded && totalImages) {
+    if (totalImages && imagesLoaded && imagesLoaded >= totalImages) {
       setProgress((prevProgress) => {
-        const newProgress = prevProgress + (imagesLoaded / totalImages) * 50;
+        const newProgress = prevProgress + (imagesLoaded / totalImages) * 75;
         return Math.round(Math.min(newProgress, 100));
       });
 
       if (imagesLoaded === totalImages) {
-        setTimeout(() => setInitParticles(true), 1000);
-        setTimeout(() => setLoading(false), 1500);
+        setCheckForEarthLoad(true);
       }
     }
   }, [totalImages, imagesLoaded]);
+
+  useEffect(() => {
+    if (checkForEarthLoad) {
+      setProgress(100);
+      setTimeout(() => setInitParticles(true), 1000);
+      setTimeout(() => setLoading(false), 1500);
+    }
+  }, [checkForEarthLoad]);
 
   return (
     <PreloaderContext.Provider
@@ -96,8 +78,13 @@ export const PreloaderProvider = ({
         progress,
         setProgress,
         initParticles,
+        setInitParticles,
         imagesLoaded,
         setImagesLoaded,
+        earthLoaded,
+        setEarthLoaded,
+        resizeParticles,
+        setResizeParticles,
       }}
     >
       {children}

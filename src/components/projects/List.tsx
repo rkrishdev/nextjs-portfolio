@@ -8,8 +8,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "react-responsive";
-import { usePreloader } from "@/context/PreloaderContext";
 import { useCursor } from "@/context/CursorContext";
+import { DistortionCanvas } from "../shared/others/DistortionCanvas";
 
 const projectData = [
   {
@@ -48,7 +48,6 @@ const projectData = [
 
 export const List = () => {
   const { cursorHandlers } = useCursor();
-  const { setImagesLoaded } = usePreloader();
 
   const [col1TransformValue, setCol1TransformValue] = useState<string[]>([
     "0vw",
@@ -91,28 +90,18 @@ export const List = () => {
   const renderProject = (project: any) => (
     <div className={projectStyles.listItem} key={project.title}>
       <Link href={project.link} target="_blank">
-        <Image
-          className={[
-            projectStyles.listImage,
-            "checkForload",
+        <DistortionCanvas
+          className={projectStyles.listImage}
+          canvasClass={[
             "cursorAnimationTrigger",
             "animation:show-description",
           ].join(" ")}
-          src={project.imageSrc}
-          width={0}
-          height={0}
-          sizes="100vw"
-          alt={project.title}
-          loading="eager"
-          onLoad={() => setImagesLoaded((s) => s + 1)}
-          onError={(e) => {
-            console.error("Image failed to load", e);
-            setImagesLoaded((s) => s + 1);
-          }}
-          data-animation-description="Visit this website"
-          onMouseEnter={(e) => cursorHandlers.manageMouseEnter(e)}
+          altName={project.title}
+          imageSrc={project.imageSrc}
+          enableHoverEvents={true}
+          dataAnimationDescription={`Visit ${project.title || "website"}`}
+          onMouseEnter={(e) => cursorHandlers.manageMouseEnter(e, null)}
           onMouseOut={(e) => cursorHandlers.manageMouseOut(e)}
-          priority
         />
       </Link>
       <div className={projectStyles.itemContent}>
@@ -157,8 +146,10 @@ export const List = () => {
               "cursorAnimationTrigger",
               "animation:show-description",
             ].join(" ")}
-            data-animation-description="Visit this website"
-            onMouseEnter={(e) => cursorHandlers.manageMouseEnter(e)}
+            data-animation-description={`Visit ${
+              project.title || "website"
+            }`}
+            onMouseEnter={(e) => cursorHandlers.manageMouseEnter(e, null)}
             onMouseOut={(e) => cursorHandlers.manageMouseOut(e)}
           >
             <Image
@@ -166,7 +157,7 @@ export const List = () => {
               width={0}
               height={0}
               sizes="100vw"
-              alt="link"
+              alt="Website URL"
               style={{ pointerEvents: "none" }}
             />
           </Link>

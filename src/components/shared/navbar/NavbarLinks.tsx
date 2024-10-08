@@ -69,7 +69,7 @@ export const NavbarLinks = ({ currentSection }: { currentSection: string }) => {
             "animation:show-description",
           ].join(" ")}
           data-animation-description="new-tab-icon"
-          onMouseEnter={(e) => cursorHandlers.manageMouseEnter(e)}
+          onMouseEnter={(e) => cursorHandlers.manageMouseEnter(e, null)}
           onMouseOut={(e) => cursorHandlers.manageMouseOut(e)}
         >
           Resume

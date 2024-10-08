@@ -1,11 +1,13 @@
 import { Canvas, useLoader } from "@react-three/fiber";
 import { useMotionValueEvent, useScroll } from "framer-motion";
-import { useRef, useState, useMemo, useCallback } from "react";
+import { useRef, useState, useMemo, useCallback, useEffect } from "react";
 import { TextureLoader } from "three/src/loaders/TextureLoader.js";
 import { motion } from "framer-motion-3d";
 import earthStyles from "@/styles/earth.module.css";
+import { usePreloader } from "@/context/PreloaderContext";
 
 export default function Earth() {
+  const { setEarthLoaded } = usePreloader();
   const [earthRotationValue, setEarthRotationValue] = useState<number>(0);
   const [cloudRotationValue, setCloudRotationValue] = useState<number>(0);
   const [scaleValue, setScaleValue] = useState<number>(2.85);
@@ -47,13 +49,19 @@ export default function Earth() {
     )
   );
 
+  useEffect(() => {
+    if (color && normal && aoMap && cloudMap) {
+      setEarthLoaded(true);
+    }
+  }, [color, normal, aoMap, cloudMap, setEarthLoaded]);
+
   return (
     <div ref={scene} className={earthStyles.canvasContainer}>
       <Canvas>
         <ambientLight intensity={0.1} />
         <directionalLight
           intensity={2.15}
-          position={[1.15,0, 1]}
+          position={[1.15, 0, 1]}
           color={"#f5f5f5"}
         />
         <motion.mesh

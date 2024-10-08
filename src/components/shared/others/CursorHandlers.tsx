@@ -33,7 +33,7 @@ export const useCursorHandlers = (
       textContainer ? (textContainer.innerHTML = "") : "";
       cursorFollower.current.style.width = `${defaultSize}px`;
       cursorFollower.current.style.height = `${defaultSize}px`;
-      cursorFollower.current.style.backgroundColor = `var(--button-bg-white)`;
+      cursorFollower.current.style.backgroundColor = `var(--cursor-bg)`;
       cursorFollower.current.style.mixBlendMode = `normal`;
       cursorFollower.current.style.color = "";
       cursorFollower.current.style.borderRadius = "";
@@ -45,7 +45,8 @@ export const useCursorHandlers = (
     const target = e.target as HTMLElement;
     if (
       target &&
-      !target.classList.contains("cursorAnimationTrigger") &&
+      !target?.classList?.contains("cursorAnimationTrigger") &&
+      !target?.closest(".cursorAnimationTrigger") &&
       isHovering.current
     ) {
       manageMouseOut();
@@ -53,19 +54,34 @@ export const useCursorHandlers = (
   };
 
   const manageMouseEnter = debounce(
-    (event: React.MouseEvent<HTMLElement>) => {
+    (
+      event: React.MouseEvent<HTMLElement>,
+      canvas: HTMLCanvasElement | null
+    ) => {
       if (isHovering.current || !allowCursor) return;
       isHovering.current = true;
       clearTimeOuts();
       resetFollowerToDefault();
 
-      const target = event.target as HTMLElement | null;
+      window.addEventListener("mousemove", handleEnterMouseMove);
 
-      if (!target || !target.classList.contains("cursorAnimationTrigger")) {
+      let target = event.target as HTMLElement | null;
+
+      if (!target && !canvas) {
         return;
       }
 
-      window.addEventListener("mousemove", handleEnterMouseMove);
+      if (
+        target &&
+        !target?.classList?.contains("cursorAnimationTrigger") &&
+        !canvas
+      ) {
+        return;
+      } else if (canvas && canvas.closest(".cursorAnimationTrigger")) {
+        target = canvas.closest(".cursorAnimationTrigger") as HTMLElement;
+      } else if (!target) {
+        return;
+      }
 
       if (cursorFollower.current) {
         if (target.classList.contains("animation:invert-bg")) {
@@ -109,16 +125,18 @@ export const useCursorHandlers = (
               textHeight + window.innerWidth * 0.015
             }px`;
             cursorFollower.current.style.borderRadius = "10vw";
+            cursorFollower.current.style.backgroundColor =
+              "var(--button-bg-white)";
             cursorFollower.current.style.backdropFilter = "blur(6px)";
 
             revealTimeoutRef.current = setTimeout(() => {
               setShowText(true);
-            }, 140);
+            }, 150);
           }
         }
       }
     },
-    isMouseOutActive ? 150 : 0
+    isMouseOutActive ? 160 : 0
   );
 
   const manageMouseOut = () => {
@@ -135,7 +153,7 @@ export const useCursorHandlers = (
 
     hideTimeoutRef.current = setTimeout(() => {
       setIsMouseOutActive(false);
-    }, 140);
+    }, 150);
   };
 
   return { manageMouseEnter, manageMouseOut };

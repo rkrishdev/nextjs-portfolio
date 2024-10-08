@@ -4,7 +4,6 @@ import skillsStyles from "@/styles/skills.module.css";
 import defaultStyles from "@/styles/default.module.css";
 import { montserrat } from "@/styles/fonts/fonts";
 import Image from "next/image";
-import { useRevealInView } from "@/hooks/useRevealInView";
 import { usePreloader } from "@/context/PreloaderContext";
 
 const techLogos = [
@@ -21,16 +20,11 @@ const techLogos = [
 
 export const Highlighted = () => {
   const { setImagesLoaded } = usePreloader();
-  const { ref, className } = useRevealInView(
-    defaultStyles.textRevealInitial,
-    defaultStyles.textRevealAnimation
-  );
 
   return (
     <div className={skillsStyles.highlight}>
       <div
-        ref={ref}
-        className={`${defaultStyles.containerSpace} ${className} ${skillsStyles.grid}`}
+        className={[defaultStyles.containerSpace, skillsStyles.grid].join(" ")}
       >
         {techLogos.map(({ src, alt, name }) => (
           <div key={name} className={skillsStyles.gridItem}>
