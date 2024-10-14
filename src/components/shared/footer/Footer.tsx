@@ -40,12 +40,14 @@ export const Footer = () => {
         aria-label="Go to hero section"
       >
         <Image
+          className={"checkForload"}
           src={"/assets/imgs/others/arrow.svg"}
           width={0}
           height={0}
           sizes="100%"
           alt="Circle with arrow"
           style={{ pointerEvents: "none" }}
+          loading="eager"
         />
         <p
           className={[defaultStyles.textNormal, montserrat.className].join(" ")}
