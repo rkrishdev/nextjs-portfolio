@@ -3,10 +3,11 @@
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import { useCursor } from "@/context/CursorContext";
 import cursorFollowerstyles from "@/styles/cursor-follower.module.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { montserrat } from "@/styles/fonts/fonts";
 
 export const CursorFollower = () => {
+  const [cursorMoved, setCursorMoved] = useState<boolean>(false);
   const { allowCursor, cursorFollower, cursorSize, showText } = useCursor();
   const { isHovered } = useCursor();
 
@@ -25,6 +26,10 @@ export const CursorFollower = () => {
     const manageMouseMove = (event: MouseEvent) => {
       if (!allowCursor) return;
 
+      if (!cursorMoved) {
+        setCursorMoved(true);
+      }
+
       const { clientX, clientY } = event;
 
       if (isHovered === "position:center") {
@@ -41,13 +46,20 @@ export const CursorFollower = () => {
     return () => {
       window.removeEventListener("mousemove", manageMouseMove);
     };
-  }, [allowCursor, isHovered, cursorPosition.x, cursorPosition.y, cursorSize]);
+  }, [
+    cursorMoved,
+    allowCursor,
+    isHovered,
+    cursorPosition.x,
+    cursorPosition.y,
+    cursorSize,
+  ]);
 
   return (
     <motion.div
       ref={cursorFollower}
       style={{
-        display: allowCursor ? "" : "none",
+        display: allowCursor && cursorMoved ? "" : "none",
         left: smoothMouse.x,
         top: smoothMouse.y,
         width: `${cursorSize}px`,

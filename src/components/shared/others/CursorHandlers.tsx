@@ -38,6 +38,7 @@ export const useCursorHandlers = (
       cursorFollower.current.style.color = "";
       cursorFollower.current.style.borderRadius = "";
       cursorFollower.current.style.backdropFilter = "none";
+      cursorFollower.current.style.display = "flex";
     }
   };
 
