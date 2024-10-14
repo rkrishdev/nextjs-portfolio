@@ -92,11 +92,4 @@
 
 .othersGridItem {
   width: 100%;
-  padding-right: 5vw;
-}
-
-@media screen and (max-width: 1000px) {
-  .othersGridItem {
-    padding-right: 0;
-  }
 }

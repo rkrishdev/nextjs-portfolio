@@ -89,8 +89,10 @@ export const PreloaderProvider = ({
   useEffect(() => {
     if (checkForEarthLoad) {
       setProgress(100);
-      setTimeout(() => setInitParticles(true), 1000);
-      setTimeout(() => setLoading(false), 1500);
+      setTimeout(() => {
+        setInitParticles(true);
+        setLoading(false);
+      }, 1500);
     }
   }, [checkForEarthLoad]);
 
