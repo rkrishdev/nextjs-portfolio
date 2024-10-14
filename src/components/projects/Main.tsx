@@ -35,7 +35,7 @@ export const Projects = () => {
         ].join(" ")}
       >
         Built large-scale internal products like CRM/ERP panels and dynamic
-        websites. Exciting new Node.js projects are also on the way!
+        websites. Exciting new Node.js projects are on the way!
       </p>
       <List />
     </div>
