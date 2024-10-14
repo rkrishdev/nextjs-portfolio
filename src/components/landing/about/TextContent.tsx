@@ -74,7 +74,7 @@ const TextContent = () => {
               defaultStyles.textLarge,
             ].join(" ")}
           >
-            Team Player
+            Driven Achiever
           </b>
         </div>
       </div>

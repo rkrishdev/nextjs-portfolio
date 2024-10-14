@@ -25,8 +25,7 @@ export const Others = () => {
         <p
           className={[montserrat.className, defaultStyles.textNormal].join(" ")}
         >
-          HTML 5, CSS 3, JavaScript, Bootstrap 5, Three.js, jQuery, React and
-          Material UI
+          JavaScript, Bootstrap 5, Three.js, jQuery, React, Framer Motion, Material UI
         </p>
       </div>
       <div className={skillsStyles.othersGridItem}>
@@ -43,8 +42,7 @@ export const Others = () => {
         <p
           className={[montserrat.className, defaultStyles.textNormal].join(" ")}
         >
-          PHP, CodeIgniter, Linux, Websocket, Express.js, MySQL, Docker and
-          Apache
+          PHP, CodeIgniter, Linux, Websocket, Express.js, MySQL, Docker, Apache
         </p>
       </div>
       <div className={skillsStyles.othersGridItem}>
@@ -56,12 +54,12 @@ export const Others = () => {
             skillsStyles.title,
           ].join(" ")}
         >
-          Scripting and Testing Tools
+          Tools and Platforms
         </h6>
         <p
           className={[montserrat.className, defaultStyles.textNormal].join(" ")}
         >
-          TypeScript, Git, GitHub and Vitest
+          TypeScript, Git, GitHub, Vitest, Vercel
         </p>
       </div>
       <div className={skillsStyles.othersGridItem}>
@@ -78,7 +76,7 @@ export const Others = () => {
         <p
           className={[montserrat.className, defaultStyles.textNormal].join(" ")}
         >
-          Photoshop, Figma and Adobe XD (beginner)
+          Photoshop, Figma, Adobe XD
         </p>
       </div>
     </div>

@@ -15,18 +15,18 @@ const projectData = [
   {
     title: "JMJ Housing",
     description:
-      "A popular real estate website in India. This was my first React application. It uses Next.js app router.",
+      "A dynamic real estate website developed using Next.js and MySQL. It uses App Router.",
     imageSrc: "/assets/imgs/projects/jmjhousing.webp",
     buttons: ["Next.js"],
-    link: "https://jmjhousing.com",
+    link: "https://www.jmjhousing.com",
   },
   {
     title: "Yurik Technologies",
     description:
-      "Redesigned my currently employed company's website with my design input.",
+      "Redesigned my currently employed company's entire website with my design input.",
     imageSrc: "/assets/imgs/projects/yuriktechnologies.webp",
     buttons: ["PHP", "CodeIgniter"],
-    link: "https://yuriktechnologies.com",
+    link: "https://www.yuriktechnologies.com",
   },
   {
     title: "Her Little Pattisserie",
@@ -34,15 +34,15 @@ const projectData = [
       "This was a critical project, as I had to develop the website without any UI/UX design.",
     imageSrc: "/assets/imgs/projects/herlittlepattisserie.webp",
     buttons: ["PHP", "Laravel"],
-    link: "https://herlittlepattisserie.com",
+    link: "https://www.herlittlepattisserie.com",
   },
   {
     title: "Photopointy",
-    description:
-      "This was my first ever product developed entirely by myself. It is a photography booking app.",
+    description: `Developed my first full-fledged product using CodeIgniter that allows users to book sessions and
+manage appointments.`,
     imageSrc: "/assets/imgs/projects/photopointy.webp",
     buttons: ["PHP", "CodeIgniter"],
-    link: "https://photopointy.com",
+    link: "https://www.photopointy.com",
   },
 ];
 
@@ -146,9 +146,7 @@ export const List = () => {
               "cursorAnimationTrigger",
               "animation:show-description",
             ].join(" ")}
-            data-animation-description={`Visit ${
-              project.title || "website"
-            }`}
+            data-animation-description={`Visit ${project.title || "website"}`}
             onMouseEnter={(e) => cursorHandlers.manageMouseEnter(e, null)}
             onMouseOut={(e) => cursorHandlers.manageMouseOut(e)}
           >

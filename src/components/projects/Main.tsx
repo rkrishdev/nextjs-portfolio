@@ -34,8 +34,8 @@ export const Projects = () => {
           projectStyles.titleText,
         ].join(" ")}
       >
-        Building large-scale internal products like CRM/ERP panels and dynamic
-        websites, with exciting new projects on the way!
+        Built large-scale internal products like CRM/ERP panels and dynamic
+        websites. Exciting new Node.js projects are also on the way!
       </p>
       <List />
     </div>
