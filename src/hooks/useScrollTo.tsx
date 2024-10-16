@@ -16,7 +16,7 @@ const useScrollTo = () => {
 
       const element = document.getElementById(id);
       if (element) {
-        const offsetVh = 16;
+        const offsetVh = 14;
         const duration = 1.4;
         const easing = (t: number) => 1 - Math.pow(1 - t, 4);
 
