@@ -1,0 +1,16 @@
+.progress {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 0.125vw;
+  background: var(--primary);
+  transform-origin: left;
+  z-index: 9999;
+}
+
+@media screen and (max-width: 1000px) {
+  .progress {
+    height: 2px;
+  }
+}
