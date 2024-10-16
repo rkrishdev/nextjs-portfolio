@@ -56,7 +56,13 @@
   height: 27.5vw;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 400px) {
+  .canvasContainer {
+    height: 70vw;
+  }
+}
+
+@media screen and (min-width: 401px) and (max-width: 800px) {
   .canvasContainer {
     height: 60vw;
   }

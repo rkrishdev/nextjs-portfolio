@@ -9,14 +9,12 @@ import { LargeGradientBg } from "@/components/shared/others/LargeGradientBg";
 import { Preloader } from "@/components/shared/others/Preloader";
 import { ParticlesBg } from "@/components/shared/others/ParticlesBg";
 import { CursorFollower } from "@/components/shared/others/CursorFollower";
-import { ScrollProgress } from "@/components/shared/others/ScrollProgress";
 
 export default function Home() {
   return (
     <>
       <Preloader />
       <CursorFollower />
-      <ScrollProgress />
       <div style={{ overflowX: "hidden" }}>
         <MainContent />
         <About />
