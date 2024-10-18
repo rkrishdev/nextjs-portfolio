@@ -1,7 +1,7 @@
 .listContainer {
   margin-top: 7vw;
   display: flex;
-  gap: 7vw;
+  justify-content: space-between;
   padding-bottom: 8vw;
 }
 
@@ -26,11 +26,13 @@
 }
 
 .listItem {
+  width: 36.75vw;
   margin-bottom: 7vw;
 }
 
 @media screen and (max-width: 1000px) {
   .listItem {
+    width: 100%;
     margin-bottom: 3rem;
   }
 }
@@ -55,16 +57,6 @@
     width: 100%;
     margin-bottom: 1rem;
     height: 100%;
-  }
-}
-
-.itemContent {
-  max-width: 90%;
-}
-
-@media screen and (max-width: 1000px) {
-  .itemContent {
-    max-width: 100%;
   }
 }
 

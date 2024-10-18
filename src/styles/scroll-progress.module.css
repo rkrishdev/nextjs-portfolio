@@ -2,7 +2,7 @@
   position: fixed;
   top: env(safe-area-inset-top, 0);
   width: 100vw;
-  height: 0.125vw;
+  height: 0.1325vw;
   background: var(--primary);
   transform-origin: left;
   z-index: 9999;

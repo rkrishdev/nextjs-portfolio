@@ -89,12 +89,27 @@ export const PreloaderProvider = ({
   useEffect(() => {
     if (checkForEarthLoad) {
       setProgress(100);
-      setTimeout(() => {
-        setInitParticles(true);
-        setLoading(false);
-      }, 1500);
+      closePreloader();
     }
   }, [checkForEarthLoad]);
+
+  const closePreloader = () => {
+    setTimeout(() => {
+      setInitParticles(true);
+      setLoading(false);
+    }, 1500);
+  };
+
+  useEffect(() => {
+    const checkIfPreloaderVisible = () => {
+      if (progress >= 100 && checkForEarthLoad && loading) {
+        closePreloader();
+      }
+    };
+    const intervalId = setInterval(() => checkIfPreloaderVisible(), 2000);
+
+    return () => clearInterval(intervalId);
+  }, [checkForEarthLoad, loading, progress]);
 
   useEffect(() => {
     const handleVisibilityChange = () => {
