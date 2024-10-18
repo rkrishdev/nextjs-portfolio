@@ -36,7 +36,7 @@
 }
 
 .listImage {
-  width: 36.5vw;
+  width: 36.75vw;
   height: 20vw;
   object-fit: contain;
   filter: brightness(90%);
